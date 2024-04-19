@@ -1,6 +1,11 @@
 # GRAPHITE: Generating Automatic Physical Examples for Machine-Learning Attacks on Computer Vision Systems
 Code for [GRAPHITE: Generating Automatic Physical Examples for Machine-Learning Attacks on Computer Vision Systems](https://arxiv.org/abs/2002.07088), to appear in the 2022 IEEE European Symposium on Security and Privacy (EuroS&P).
 
+```
+Copyright (c) 2022 Regents of the University of Michigan and University of Wisconsin-Madison
+Authors: Ryan Feng, Neal Mangaokar, Jiefeng Chen, Earlence Fernandes, Somesh Jha, Atul Prakash
+```
+
 ## Prereqs 
 ### Packages
 ```
