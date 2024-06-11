@@ -17,6 +17,7 @@ from shutil import copyfile
 import parsearguments
 from scipy.cluster.vq import vq
 
+from MNIST.small_cnn import SmallCNN
 def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta= 1, num_xforms_mask = 100, num_xforms_boost = 1000, net_size = 32, noise_size = 32, model_type = 'GTSRB', joint_iters = 1, image_id=''):
     import getpass
     username = getpass.getuser()
@@ -28,7 +29,7 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
         out_str_base = username + "_" + image_id + '_' + str(lbl_v) + '_' + str(lbl_t) + '_' + str(reduceerror)  + '_' + str(coarseerror) + '_' +  str(coarse_mode) + '_' + scorefile + "_" ;
     else:
         out_str_base = username + "_" + str(lbl_v) + '_' + str(lbl_t) + '_' + str(reduceerror)  + '_' + str(coarseerror) + '_' +  str(coarse_mode) + '_' + scorefile + "_" ;
-    out_str_heat = username + "_" + str(lbl_v) + '_' + str(lbl_t);
+    out_str_heat = username + "_" + str(lbl_v) + '_' + str(lbl_t)
     output_base = args.out_path
     if model_type != 'GTSRB':
         output_base += model_type + '/'
@@ -168,8 +169,22 @@ def attack_CIFAR(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, 
     attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta, num_xforms_mask, num_xforms_boost, net_size, noise_size, model_type = 'CIFAR', joint_iters = joint_iters, image_id = image_id)
 
 
+def attack_MNIST(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta= 1, num_xforms_mask = 100, num_xforms_boost = 1000, net_size = 32, noise_size = 32, joint_iters = 1, image_id = ''):
+    net = SmallCNN()
+    if torch.cuda.is_available():
+        net.cuda()
+        net = torch.nn.DataParallel(net, device_ids=[0])
+    
+    net.eval()
+
+    model = net.module if torch.cuda.is_available() else net
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    checkpoint = torch.load('MNIST/epoch-39-MNIST.ckpt', map_location=device)
+    model.load_state_dict(checkpoint)
+
+    attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta, num_xforms_mask, num_xforms_boost, net_size, noise_size, model_type = 'MNIST', joint_iters = joint_iters, image_id = image_id)
 if __name__ == '__main__':
-    network = 'GTSRB'
+    network = 'MNIST'
     args = parsearguments.getarguments()
     network = args.network
     img_v = args.img_v
@@ -197,6 +212,7 @@ if __name__ == '__main__':
         attack_GTSRB(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, args.coarse_error, args.reduce_error, beta, num_xforms_mask, num_xforms_boost, net_size = 32, noise_size = 32, joint_iters = joint_iters)
     elif network == 'CIFAR':
         attack_CIFAR(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, args.coarse_error, args.reduce_error, beta, num_xforms_mask, num_xforms_boost, net_size = 32, noise_size = 32, joint_iters = joint_iters, image_id = image_id)
-
+    elif network == 'MNIST':
+        attack_MNIST(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, args.coarse_error, args.reduce_error, beta, num_xforms_mask, num_xforms_boost, net_size = 32, noise_size = 32, joint_iters = joint_iters, image_id = image_id)
     timeend = time.time()
     print("\n\nTotal running time: %.4f seconds\n" % (timeend - timestart))
