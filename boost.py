@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 import torch 
 from transforms import get_transform_params, get_transformed_images, convert2Network, add_noise
-from utils import run_predictions
+from utils import run_predictions, grayDim
 
 def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, iterations = 30, pt_file = 'images/Points/14.csv', num_xforms = 1000, net_size = 32, model_type = 'GTSRB', goal = None, eta = 500, bt = False, budget_factor = 200, init_theta = None, square_mask = False, early_boost_exit = False):
     """ Input requirements:
@@ -31,6 +31,10 @@ def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, it
 
     x0_lg_np = x0_large.permute(1, 2, 0).numpy()
     x0_np = cv2.resize(x0_lg_np, (mask.size()[2], mask.size()[1]))
+    # if(len(x0_np.shape) == 2):
+    #     x0_np = x0_np[:,:,np.newaxis]
+    
+    x0_np = grayDim(x0_np)
     x0 = torch.from_numpy(x0_np).permute(2, 0, 1)
 
     if init_theta is not None:
@@ -40,10 +44,18 @@ def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, it
     theta_np = theta.permute(1, 2, 0).numpy()
 
     theta_np_large = cv2.resize(theta_np, (x0_large.size()[2], x0_large.size()[1]))
+    # if(len(theta_np_large.shape) == 2):
+    #     theta_np_large = theta_np_large[:,:,np.newaxis]
+    
+    theta_np_large = grayDim(theta_np_large)
     theta_np_large_torch = torch.from_numpy(theta_np_large).permute(2, 0, 1)
     comb_large = x0_large + theta_np_large_torch
     comb_np = comb_large.permute(1, 2, 0).numpy()
     comb_np = cv2.resize(comb_np, (mask.size()[2], mask.size()[1]))
+    # if(len(comb_np.shape) == 2):
+    #     comb_np = comb_np[:,:,np.newaxis]
+    
+    comb_np = grayDim(comb_np)
     comb_torch = torch.from_numpy(comb_np).permute(2, 0, 1)
 
     xform_imgs = get_transformed_images(x0_large, mask, xforms, 1.0, theta, pt_file, net_size = net_size, model_type = model_type)
@@ -58,6 +70,11 @@ def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, it
     if x0_large is not None:
         init_theta_np = best_theta.permute(1, 2, 0).numpy()
         init_theta_np = cv2.resize(init_theta_np, (x0_large.size()[2], x0_large.size()[1]))
+        # if(len(init_theta_np.shape) == 2):
+        #     init_theta_np = init_theta_np[:,:,np.newaxis]
+        
+        init_theta_np = grayDim(init_theta_np)
+
         init_theta_lg_torch = torch.from_numpy(init_theta_np).permute(2, 0, 1)
         init_attacked = x0_large + init_theta_lg_torch
 
@@ -168,6 +185,7 @@ def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, it
 
         best_theta_inter_full_lg = best_theta.permute(1, 2, 0).numpy()
         best_theta_inter_full_lg = cv2.resize(best_theta_inter_full_lg, (x0_large.size()[2], x0_large.size()[1]))
+        best_theta_inter_full_lg = grayDim(best_theta_inter_full_lg)
         best_theta_inter_torch = torch.from_numpy(best_theta_inter_full_lg).permute(2, 0, 1)
         intermediate2 = x0_large + 1.0 * best_theta_inter_torch
 
@@ -176,7 +194,10 @@ def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, it
 
     best_theta_np = best_theta.permute(1, 2, 0).numpy()
     best_theta_np_lg = cv2.resize(best_theta_np, (x0_large.size()[2], x0_large.size()[1]))
-    best_theta_lg_torch = torch.from_numpy(best_theta_np_lg).permute(2, 0, 1)
+    # if(len(best_theta_np_lg.shape) == 2):
+    #     best_theta_np_lg = best_theta_np_lg[:,:,np.newaxis]
+    
+    best_theta_np_lg = grayDim(best_theta_np_lg)
     if model_type == 'GTSRB':
         adv_example = add_noise(x0_large, mask, 1.0, best_theta)
     else:
@@ -185,6 +206,10 @@ def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, it
     x0_lg_numpy = x0_large.permute(1, 2, 0).numpy()
     mask_np = mask.permute(1, 2, 0).numpy()
     mask_np = cv2.resize(mask_np, (x0_large.size()[2], x0_large.size()[1]))
+    # if(len(mask_np.shape) == 2):
+    #     mask_np = mask_np[:,:,np.newaxis]
+
+    mask_np = grayDim(mask_np)
     mask_large = torch.from_numpy(mask_np).permute(2, 0, 1)
     perturb = torch.where(mask_large > 0.0, adv_example, torch.ones(adv_example.size()))
 

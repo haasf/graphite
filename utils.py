@@ -3,6 +3,13 @@ import torch
 import time
 import parsearguments
 
+import numpy as np
+
+def grayDim(img):
+    if(len(img.shape) == 2):
+        return img[:,:,np.newaxis]
+    else:
+        return img
 def run_predictions_untargeted(model, imgs, label):
     batch_size = 256
 
@@ -27,6 +34,7 @@ def run_predictions_untargeted(model, imgs, label):
 
 
 def run_predictions_targeted(model, imgs, target, victim=None):
+    # print("imgs.shape", imgs[0].size())
     batch_size = 256
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

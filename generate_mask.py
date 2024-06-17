@@ -10,7 +10,7 @@ import cv2
 import torch 
 from coarse_reduction import get_coarse_reduced_mask
 from transforms import get_transform_params, get_transformed_images, convert2Network, add_noise
-from utils import run_predictions
+from utils import run_predictions, grayDim
 import pickle
 
 
@@ -18,7 +18,7 @@ scoremod = None
 
 
 def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lbl_t, pt_file, scorefile, HEATMAP_MODE, COARSE_ACCEPT_THRESHOLD, FINE_REJECT_THRESHOLD,
-                   num_xforms = 100, net_size = 32, model_type = 'GTSRB', patch_size = 4, stride_factor = 4, heatmap_file = None, heatmap_out_path = None, max_mask_size = -1, init_theta = None):
+                   num_xforms = 100, net_size = 32, model_type = 'GTSRB', patch_size = 4, stride_factor = 4, heatmap_file = None, heatmap_out_path = None, max_mask_size = -1, init_theta = None, numColors = 3):
     """ Attack the original image and return adversarial example
         model: (pytorch model)
         (x0, y0): original image
@@ -36,18 +36,23 @@ def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lb
 
 
 
+
+
     print("Calculating Heatmap...")
+    
     ########################### Stage 1: HEATMAP: Collect all the valid patches and order by computed heatmap ################################
     xforms = get_transform_params(num_xforms, model_type)
     query_count = 0
     timestart = time.time()
     not_mask = torch.ones(mask.size()) - mask
-    object_size = mask.sum() / 3
+    object_size = mask.sum() / numColors
 
-    patch = torch.ones((3, patch_size, patch_size))
+    patch = torch.ones((numColors, patch_size, patch_size))
     patches = []
     indices = []
 
+
+    # print("patch_size: ", patch_size, " stride_factor: ", stride_factor)
     if heatmap_file is None:
         # collect all valid patches
         for i in range(0, mask.size()[1] - patch_size, patch_size // stride_factor): # 4
@@ -59,6 +64,7 @@ def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lb
                     patches.append(new_mask)
                     indices.append((i, j))
         print("num patches: ", len(patches))
+
 
         # compute heatmap and order
         tr_scores, heatmap_query_ct = survey_heatmap(mask, patches, indices, img_v, img_t, img_v_small, img_t_small, lbl_t, lbl_v, model, xforms, pt_file, net_size, HEATMAP_MODE, plot = True, model_type = model_type, init_theta = init_theta)
@@ -145,12 +151,17 @@ def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lb
     return attacked, query_count, best_mask, reducer_nbits.item(), best_tr
 
 
-def get_heatmap(start_mask, patches, indices, img_v, img_t, lbl_v, lbl_t, model, xforms, pt_file, net_size, init_tr = 0.5, plot = False, model_type = 'GTSRB', init_theta = None):
-    object_size = start_mask.sum() / 3
+def get_heatmap(start_mask, patches, indices, img_v, img_t, lbl_v, lbl_t, model, xforms, pt_file, net_size, init_tr = 0.5, plot = False, model_type = 'GTSRB', init_theta = None,numColors = 3):
+    object_size = start_mask.sum() / numColors
 
     # setup images
     img_v_np = img_v.permute(1, 2, 0).numpy()
     img_v_np = cv2.resize(img_v_np, (start_mask.size()[2], start_mask.size()[1]))
+
+    # if(len(img_v_np.shape) == 2):
+    #     img_v_np = img_v_np[:,:,np.newaxis]
+
+    img_v_np = grayDim(img_v_np)
     img_v_small = torch.from_numpy(img_v_np).permute(2, 0, 1)
 
     if img_t.size()[1] != start_mask.size()[1] or img_t.size()[2] != start_mask.size()[2]:
@@ -169,8 +180,10 @@ def get_heatmap(start_mask, patches, indices, img_v, img_t, lbl_v, lbl_t, model,
         if init_theta is None:
             theta = (img_t - img_v_small) * next_mask
         else:
-            theta = init_theta * next_mask
+            theta = init_theta * next_mask 
+
         xform_imgs = get_transformed_images(img_v, next_mask, xforms, 1.0, theta, pt_file, net_size = net_size, model_type = model_type)
+        # print("xform_imgs.shape ", xform_imgs[0].shape)
         success_rate, query_ct = run_predictions(model, xform_imgs, lbl_v, lbl_t)
         heatmap_query_ct += query_ct
         tr_scores.append(1 - success_rate)
@@ -178,18 +191,24 @@ def get_heatmap(start_mask, patches, indices, img_v, img_t, lbl_v, lbl_t, model,
     return tr_scores, heatmap_query_ct
 
 
-def get_fine_reduced_mask(start_mask, object_size, patches, indices, img_v, img_t, lbl_v, lbl_t, model, xforms, pt_file, net_size, err_threshold = 0.75, HEATMAP_MODE = None, scoremod = None, lbd = 5, max_mask_size = -1, model_type = 'GTSRB', init_theta = None):
+def get_fine_reduced_mask(start_mask, object_size, patches, indices, img_v, img_t, lbl_v, lbl_t, model, xforms, pt_file, net_size, err_threshold = 0.75, HEATMAP_MODE = None, scoremod = None, lbd = 5, max_mask_size = -1, model_type = 'GTSRB', init_theta = None,numColors = 3):
     # STAGE 3: Fine reduction
     reduction_query_ct = 0
 
     # set up images
     img_v_np = img_v.permute(1, 2, 0).numpy()
     img_v_np = cv2.resize(img_v_np, (start_mask.size()[2], start_mask.size()[1]))
+    # if(len(img_v_np.shape) == 2):
+    #     img_v_np = img_v_np[:,:,np.newaxis]
+    img_v_np = grayDim(img_v_np)
     img_v_small = torch.from_numpy(img_v_np).permute(2, 0, 1)
 
     if img_t.size()[1] != img_v_small.size()[1] or img_t.size()[2] != img_v_small.size()[2]:
         img_t_np = img_t.permute(1, 2, 0).numpy()
         img_t_np = cv2.resize(img_t_np, (start_mask.size()[2], start_mask.size()[1]))
+        # if(len(img_t_np.shape)== 2):
+        #     img_t_np = img_t_np[:,:,np.newaxis]
+        img_t_np = grayDim(img_t_np)
         img_t = torch.from_numpy(img_t_np).permute(2, 0, 1)
     img_t_small = img_t
 
@@ -205,7 +224,7 @@ def get_fine_reduced_mask(start_mask, object_size, patches, indices, img_v, img_
 
     init_tr = (1 - success_rate)
     print("init_tr", init_tr)
-    print("init bits", start_mask.sum() / 3)
+    print("init bits", start_mask.sum() / numColors)
 
     best_score = scoremod.score_fn(theta + img_v_small, start_mask, success_rate, object_size, None, threshold=err_threshold, lbd = lbd)
     best_tr = init_tr
@@ -239,7 +258,7 @@ def get_fine_reduced_mask(start_mask, object_size, patches, indices, img_v, img_
             best_score = score
             best_mask = next_mask
             best_tr = 1 - success_rate
-            nbits = best_mask.sum() / 3
+            nbits = best_mask.sum() / numColors
             if max_mask_size > 0 and nbits < max_mask_size:
                 break
         else:
@@ -251,7 +270,7 @@ def get_fine_reduced_mask(start_mask, object_size, patches, indices, img_v, img_
 
 
 
-def survey_heatmap(mask, patches, indices, img_v, img_t, img_v_small, img_t_small, lbl_t, lbl_v, model, xforms, pt_file, net_size, HEATMAP_MODE, plot = False, model_type = 'GTSRB', init_theta = None):
+def survey_heatmap(mask, patches, indices, img_v, img_t, img_v_small, img_t_small, lbl_t, lbl_v, model, xforms, pt_file, net_size, HEATMAP_MODE, plot = False, model_type = 'GTSRB', init_theta = None, numColors = 3):
     ''' encapsulation of the transform_robustness measurements heatmap to compute
            random
            target wrt victim or 
@@ -260,8 +279,8 @@ def survey_heatmap(mask, patches, indices, img_v, img_t, img_v_small, img_t_smal
         tr_scores = [random.random() for i in range(len(patches))] 
         heatmap_query_ct = 0
     elif HEATMAP_MODE == 'Victim':
-        tr_scores, heatmap_query_ct = get_heatmap(mask, patches, indices, img_t, img_v_small, lbl_t, lbl_v, model, xforms, pt_file, net_size, plot = plot, model_type = model_type)
+        tr_scores, heatmap_query_ct = get_heatmap(mask, patches, indices, img_t, img_v_small, lbl_t, lbl_v, model, xforms, pt_file, net_size, plot = plot, model_type = model_type, numColors = numColors)
     else: ## Target mode
-        tr_scores, heatmap_query_ct = get_heatmap(mask, patches, indices, img_v, img_t_small, lbl_v, lbl_t, model, xforms, pt_file, net_size, plot = plot, model_type = model_type, init_theta = init_theta)
+        tr_scores, heatmap_query_ct = get_heatmap(mask, patches, indices, img_v, img_t_small, lbl_v, lbl_t, model, xforms, pt_file, net_size, plot = plot, model_type = model_type, init_theta = init_theta,numColors = numColors)
 
     return tr_scores, heatmap_query_ct

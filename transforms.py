@@ -21,6 +21,8 @@ def convert2Network(img, is_torch = True, net_size = 32, model_type = 'GTSRB'):
             img = img.permute(1, 2, 0).detach().cpu().numpy()
 
         img = cv2.resize(img, (32, 32))
+        if(len(img.shape) == 2):
+            img = img[:,:,np.newaxis]
         img = torch.from_numpy(img).permute(2, 0, 1)
         img = torch.clamp(img, 0.0, 1.0)
         assert(torch.max(img) <= 1.0 and torch.min(img) >= 0.0)
@@ -40,6 +42,9 @@ def convert2Network(img, is_torch = True, net_size = 32, model_type = 'GTSRB'):
             net_x = int(round(net_size / img.shape[0] * img.shape[1]))
 
         img = cv2.resize(img, (net_x, net_y))
+
+        if(len(img.shape) == 2):
+            img = img[:,:,np.newaxis]
         img = torch.from_numpy(img).permute(2, 0, 1)
         img = torch.clamp(img, 0.0, 1.0)
         assert(torch.max(img) <= 1.0 and torch.min(img) >= 0.0)
@@ -54,6 +59,9 @@ def apply_transformation(img, mask, pert, angle, dist, gamma, blur, crop_percent
 
     if blur != 0:
         pert_np = cv2.GaussianBlur(pert_np, (blur, blur), 0)
+
+    if(len(pert_np.shape) == 2):
+        pert_np = pert_np[:,:,np.newaxis]
 
     pert = torch.from_numpy(pert_np).permute(2, 0, 1)
 
@@ -146,11 +154,15 @@ def add_noise(image, mask, lbd, theta, return_pert_and_mask = False, clip = True
     theta_np = theta.permute(1, 2, 0).cpu().numpy()
    
     theta_large_np = cv2.resize(theta_np, (image.size()[2], image.size()[1]))
-    comb = image_np + lbd * theta_large_np
 
     mask_large_np = cv2.resize(mask_np, (image.size()[2], image.size()[1]))
     mask_large_np = np.where(mask_large_np > 0.5, 1.0, 0.0)
 
+    if(len(theta_large_np.shape) == 2):
+        theta_large_np = theta_large_np[:,:,np.newaxis]
+        mask_large_np = mask_large_np[:,:,np.newaxis]
+
+    comb = image_np + lbd * theta_large_np
     if clip == True:
         comb = np.clip(comb, 0, 1)
     if return_pert_and_mask:

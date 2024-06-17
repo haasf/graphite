@@ -18,11 +18,16 @@ def get_coarse_reduced_mask(start_mask, object_size, patches, indices, img_v, im
     # Format images
     img_v_np = img_v.permute(1, 2, 0).numpy()
     img_v_np = cv2.resize(img_v_np, (start_mask.size()[2], start_mask.size()[1]))
+
+    if(len(img_v_np.shape) == 2): 
+        img_v_np = img_v_np[:,:,np.newaxis]
     img_v_small = torch.from_numpy(img_v_np).permute(2, 0, 1)
 
     if img_t.size()[1] != img_v_small.size()[1] or img_t.size()[2] != img_v_small.size()[2]:
         img_t_np = img_t.permute(1, 2, 0).numpy()
         img_t_np = cv2.resize(img_t_np, (start_mask.size()[2], start_mask.size()[1]))
+        if(len(img_t_np) == 2): 
+            img_t_np = img_t_np[:,:,np.newaxis]
         img_t_small = torch.from_numpy(img_t_np).permute(2, 0, 1)
     else:
         img_t_small = img_t
