@@ -18,12 +18,14 @@ import parsearguments
 from scipy.cluster.vq import vq
 
 from MNIST.mnist_net import MnistNet
-def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta= 1, num_xforms_mask = 100, num_xforms_boost = 1000, net_size = 32, noise_size = 32, model_type = 'GTSRB', joint_iters = 1, image_id=''):
+import random
+def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta= 1, num_xforms_mask = 100, num_xforms_boost = 1000, net_size = 32, noise_size = 32, model_type = 'GTSRB', joint_iters = 1, image_id='',return_type = 'Stats'):
     import getpass
     username = getpass.getuser()
     args = parsearguments.getarguments()
     coarse_mode = args.coarse_mode
     
+
     if image_id != '':
         out_str_base = username + "_" + image_id + '_' + str(lbl_v) + '_' + str(lbl_t) + '_' + str(reduceerror)  + '_' + str(coarseerror) + '_' +  str(coarse_mode) + '_' + scorefile + "_" ;
     else:
@@ -32,17 +34,15 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
     output_base = args.out_path
     if model_type != 'GTSRB':
         output_base += model_type + '/'
-    # print("out_str_base", username + "_" + image_id + '_' + str(lbl_v) + '_' + str(lbl_t) + '_' + str(reduceerror)  + '_' + str(coarseerror))
 
-    # test = out_str_base = username + "_" + image_id + '_' + str(lbl_v) + '_' + str(lbl_t) + '_' + str(reduceerror)  + '_' + str(coarseerror)
-    # totTest = "home/haasf/GRAPHITE/STATS" + test
 
+    print("Attacking network. model_type = ", model_type, " image_id = ", image_id)
     cv2Color = cv2.COLOR_BGR2RGB
     numColors = 3
     if(model_type == 'MNIST'):
         cv2Color = cv2.COLOR_BGR2GRAY
         numColors = 1
-
+    
     img = cv2.imread(img_v)
     img = cv2.cvtColor(img, cv2Color)
     img = np.array(img, dtype=np.float32) / 255.0
@@ -104,6 +104,9 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
     prior_attack_large = tar_large.clone()
     total_mask_query_ct = 0
     total_boost_query_ct = 0
+
+    # patch_size = 4
+    patch_size = noise_size // 8
     for i in range(joint_iters):
         if args.square_x is not None:
             assert joint_iters == 1
@@ -126,38 +129,50 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
             init, this_mask_query_count, mask_out, nbits, tr_score = \
                           generate_mask(model, img_small_torch, img_torch, lbl_v, prior_mask, prior_attack, prior_attack_large, lbl_t, pt_file, scorefile,
                                         heatmap, coarseerror, reduceerror, num_xforms = num_xforms_mask,
-                                        net_size = net_size, model_type = model_type, patch_size = 4,#patch_size = noise_size // 8,
+                                        net_size = net_size, model_type = model_type, patch_size = patch_size,
                                         heatmap_file = args.heatmap_file, heatmap_out_path = output_base + 'heatmaps/' + out_str_heat + '_heatmap.pkl', max_mask_size = args.max_mask_size, init_theta = next_theta,numColors = numColors)
             total_mask_query_ct += this_mask_query_count
         nbits = int(nbits)
 
         mask_out_np = mask_out.permute(1, 2, 0).numpy()
-        # print("OUTPUT_BASE: ", output_base, "  \n")
-        # print("OUTPUT FILE: ", output_base + 'masks/' + out_str_base + '_' + str(nbits) + '_bits_' + str(tr_score) + '_tr_' + str(i) + '_joint_iter.png')
         cv2.imwrite(output_base + 'masks/' + out_str_base + '_' + str(nbits) + '_bits_' + str(tr_score) + '_tr_' + str(i) + '_joint_iter.png', mask_out_np * 255)
 
         init_np = init.permute(1, 2, 0).numpy()
         init_np = cv2.cvtColor(init_np, cv2.COLOR_RGB2BGR)
         cv2.imwrite(output_base + 'inits/' + out_str_base + '_' + str(nbits) + '_bits_' + str(tr_score) + '_tr_' + str(i) + '_joint_iter.png', init_np * 255)
 
-        adversarial, tr_score, perturb, this_boost_query_count, next_theta, adv_small = boost(model, img_torch, lbl_v, mask_out, prior_attack, lbl_t, beta = beta, iterations = 1000, pt_file = pt_file, num_xforms = num_xforms_boost, net_size = net_size, model_type = model_type, square_mask = args.square_x is not None, early_boost_exit = args.early_boost_exit, init_theta = next_theta)
-        total_boost_query_ct += this_boost_query_count
+        
+
+        if nbits != 0:
+            adversarial, tr_score, perturb, this_boost_query_count, next_theta, adv_small = boost(model, img_torch, lbl_v, mask_out, prior_attack, lbl_t, beta = beta, iterations = 1000, pt_file = pt_file, num_xforms = num_xforms_boost, net_size = net_size, model_type = model_type, square_mask = args.square_x is not None, early_boost_exit = args.early_boost_exit, init_theta = next_theta)
+            total_boost_query_ct += this_boost_query_count
+        else:  
+            adversarial = img_torch
+            tr_score = 1.0
+            # could calculate TR from run_predictio s
+            quit()
+            
+        if return_type == 'Image':
+            return adversarial
+        
 
         prior_mask = mask_out.clone()
         prior_attack_large = adversarial.clone()
         prior_attack = torch.from_numpy(grayDim(cv2.resize(prior_attack_large.clone().permute(1, 2, 0).numpy(), (noise_size, noise_size)))).permute(2, 0, 1)
 
+        # return adversarial (torch img)
         adversarial_np = adversarial.permute(1, 2, 0).numpy()
+
         adversarial_np = cv2.cvtColor(adversarial_np, cv2.COLOR_RGB2BGR)
         
-
         cv2.imwrite(output_base + 'boosted/' + out_str_base + '_' + str(nbits) + '_bits_' + str(tr_score) + '_tr_' + str(i) + '_joint_iter.png', adversarial_np * 255)
 
-        perturb_np = perturb.permute(1, 2, 0).numpy()
-        perturb_np = cv2.cvtColor(perturb_np, cv2.COLOR_RGB2BGR)
-        cv2.imwrite(output_base + 'perturbations/' + out_str_base + '_' + str(nbits) + 'bits_' + str(tr_score) + '_tr_' + str(i) + '_joint_iter.png', perturb_np * 255)
+        if nbits != 0:
+            perturb_np = perturb.permute(1, 2, 0).numpy()
+            perturb_np = cv2.cvtColor(perturb_np, cv2.COLOR_RGB2BGR)
+            cv2.imwrite(output_base + 'perturbations/' + out_str_base + '_' + str(nbits) + 'bits_' + str(tr_score) + '_tr_' + str(i) + '_joint_iter.png', perturb_np * 255)
 
-    print("--------------------------------")
+    print("-------------------------------")
     print("Attack Completed.")
     if args.num_test_xforms > -1:
         xforms = get_transform_params(args.num_test_xforms, model_type)
@@ -166,7 +181,7 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
         print("Final transform_robustness (" + str(args.num_test_xforms) + " transforms):", 1.0 - success_rate)
 
 
-    with open("STATS/MNIST.txt", mode = "a") as f: 
+    with open("STATS/CIFARPrelim.txt", mode = "a") as f: 
         f.write("\nIMAGE_ID: " + image_id)
         f.write(f"\nFinal transform_robustness: {tr_score}")
         f.write(f"\nFinal number of pixels: {nbits}") 
@@ -176,7 +191,7 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
     print("Final number of pixels:", nbits)
     print("Final number of queries:", total_mask_query_ct + total_boost_query_ct)
     #print("Final number of queries:", mask_query_count + boost_query_count)
-    return
+    return tr_score, nbits, total_mask_query_ct + total_boost_query_ct
 
 
 def attack_GTSRB(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta= 1, num_xforms_mask = 100, num_xforms_boost = 1000, net_size = 32, noise_size = 32, joint_iters = 1):
@@ -208,7 +223,7 @@ def attack_CIFAR(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, 
     checkpoint = torch.load('cifar/epoch-39.ckpt', map_location=device)
     model.load_state_dict(checkpoint)
 
-    attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta, num_xforms_mask, num_xforms_boost, net_size, noise_size, model_type = 'CIFAR', joint_iters = joint_iters, image_id = image_id)
+    return attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta, num_xforms_mask, num_xforms_boost, net_size, noise_size, model_type = 'CIFAR', joint_iters = joint_iters, image_id = image_id)
 
 
 def attack_MNIST(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta= 1, num_xforms_mask = 100, num_xforms_boost = 1000, net_size = 32, noise_size = 32, joint_iters = 1, image_id = ''):
@@ -223,16 +238,13 @@ def attack_MNIST(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     checkpoint = torch.load('MNIST/epoch-39-MNIST.ckpt', map_location=device)
     
-
-    # for key in list(checkpoint.keys()):
-    #     checkpoint[key.replace('conv','feature_extractor.conv').replace('fc','classifier.fc')] = checkpoint.pop(key)
-        
     model.load_state_dict(checkpoint)
-    # print("Attacking network w model_type = 'MNIST' ")
 
-    attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta, num_xforms_mask, num_xforms_boost, net_size, noise_size, model_type = 'MNIST', joint_iters = joint_iters, image_id = image_id)
+    return attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta, num_xforms_mask, num_xforms_boost, net_size, noise_size, model_type = 'MNIST', joint_iters = joint_iters, image_id = image_id)
 if __name__ == '__main__':
-    network = 'MNIST'
+    network = 'CIFAR'
+    runType = 'PrelimStats'
+    # runType = "just one run"
     args = parsearguments.getarguments()
     network = args.network
     img_v = args.img_v
@@ -249,10 +261,139 @@ if __name__ == '__main__':
     joint_iters = args.joint_iters
     image_id = args.image_id
     beta = 1
-    
+
     torch.manual_seed(seed)
     np.random.seed(seed)
     random.seed(seed)
+
+    
+    veryBig = time.time()
+    if runType == 'PrelimStats' and network == 'MNIST':
+        print("Running Prelim Stats on MNIST with heatmap = ", heatmap)
+        numPics = [979,1134,1031,1009,981,891,957,1027,973,1008]
+        count = 0
+        for hi in range(25, 100, 25): # tr_hi 
+            tr_hi = hi/100
+            for lo in range(0, hi+25, 25): # tr_lo 
+                tr_lo = lo/100
+                coarse_error = 1 - tr_hi
+                reduce_error = 1 - tr_lo
+                assert coarse_error <= reduce_error
+                assert coarse_error >= 0
+                assert reduce_error <= 1
+                for num_xforms in range(0, 125, 25): # -b and -m
+                    # with open("STATS/MNISTRandPrelim.txt", mode = "a") as f: 
+                        # f.write(f"\nNext 50 Iterations: tr_hi = {tr_hi}, tr_lo = {tr_lo}, num_xforms = {num_xforms}") 
+                    print(f"\nNext 50 Iterations: tr_hi = {tr_hi}, tr_lo = {tr_lo}, num_xforms = {num_xforms}")
+                    totalTR = 0
+                    totalNumPix = 0
+                    totalNumQueries = 0  
+                    totalTime = 0
+                    for lbl_v in range(0,10): # 10 classes 
+                        for j in range(5): # 5 targets (iterations) per victim 
+                            lbl_t = random.choice(list(set(range(0, 9)) - set([lbl_v])))
+                            numV = random.randint(0,numPics[lbl_v])
+                            numT = random.randint(0,numPics[lbl_t])
+                            img_v = "/home/haasf/GRAPHITE/MNIST/test/" + str(lbl_v) + "/" + str(numV) + ".png"
+                            img_t = "/home/haasf/GRAPHITE/MNIST/test/" + str(lbl_t) + "/" + str(numT) + ".png"
+
+                            image_id = "MNIST_test" + str(count)
+
+                            timestart = time.time()
+                            if(count == 792):
+                                tr_score, numBits, numQ  = attack_MNIST(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarse_error, reduce_error, 
+                                        beta, num_xforms_mask = num_xforms, num_xforms_boost = num_xforms, 
+                                        net_size = 28, noise_size = 28, joint_iters = joint_iters, image_id = image_id)
+                            else:
+                                continue
+
+
+                            timeend = time.time()
+                            iterTime = timeend - timestart
+
+                            # with open("STATS/MNISTRandPrelim.txt", mode = "a") as f: 
+                            #     f.write("\nTotal running time: %.4f seconds" % iterTime)
+
+                            # totalTR += tr_score
+                            # totalNumPix += numBits
+                            # totalNumQueries += numQ
+                            # totalTime += iterTime
+                            count += 1
+
+                    avgTr = totalTR/50
+                    avgNumPix = totalNumPix/50
+                    avgNumQ = totalNumQueries/50
+                    avgTime = totalTime/50
+                    # with open("STATS/MNISTRandPrelimAvgs.txt", mode = "a") as f: 
+                    #     f.write(f"\n\nStats from 50 iterations with tr_hi = {tr_hi}, tr_lo = {tr_lo}, num_xforms(b and m) = {num_xforms}")
+                    #     f.write(f"\nAverage transform_robustness: {avgTr}")
+                    #     f.write(f"\nAverage number of pixels: {avgNumPix}") 
+                    #     f.write(f"\nAverage number of queries: {avgNumQ} ") 
+                    #     f.write(f"\nAverage running time: {avgTime} seconds")
+
+
+    elif runType == 'PrelimStats' and network == 'CIFAR':
+        print("Running Prelim Stats w CIFAR")
+        count = 0
+        for hi in range(25, 100, 25): # tr_hi 
+            tr_hi = hi/100
+            for lo in range(0, hi+25, 25): # tr_lo 
+                tr_lo = lo/100
+                coarse_error = 1 - tr_hi
+                reduce_error = 1 - tr_lo
+                assert coarse_error <= reduce_error
+                assert coarse_error >= 0
+                assert reduce_error <= 1
+                for num_xforms in range(0, 125, 25): # -b and -m = {0, 25, 50, 75, 100}
+                    with open("STATS/CIFARPrelim.txt", mode = "a") as f: 
+                        f.write(f"\nNext 50 Iterations: tr_hi = {tr_hi}, tr_lo = {tr_lo}, num_xforms = {num_xforms}") 
+                    totalTR = 0
+                    totalNumPix = 0
+                    totalNumQueries = 0  
+                    totalTime = 0
+                    for lbl_v in range(0,10): # 10 classes 
+                        for j in range(5): # 5 targets (iterations) per victim 
+                            lbl_t = random.choice(list(set(range(0, 9)) - set([lbl_v])))
+                            numV = random.randint(0,999)
+                            numT = random.randint(0,999)
+                            img_v = "/home/haasf/GRAPHITE/cifar/test/" + str(lbl_v) + "/" + str(numV) + ".png"
+                            img_t = "/home/haasf/GRAPHITE/cifar/test/" + str(lbl_t) + "/" + str(numT) + ".png"
+
+                            image_id = "CIFAR_test" + str(count)
+                            
+                            timestart = time.time()
+                            tr_score, numBits, numQ  = attack_CIFAR(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarse_error, reduce_error, 
+                                        beta, num_xforms_mask = num_xforms, num_xforms_boost = num_xforms, 
+                                        net_size = 32, noise_size = 32, joint_iters = joint_iters, image_id = image_id)
+                            timeend = time.time()
+                            iterTime = timeend - timestart
+                            with open("STATS/CIFARPrelim.txt", mode = "a") as f: 
+                                f.write("\nTotal running time: %.4f seconds" % iterTime)
+
+                            totalTR += tr_score
+                            totalNumPix += numBits
+                            totalNumQueries += numQ
+                            totalTime += iterTime
+                            count += 1
+                    avgTr = totalTR/50
+                    avgNumPix = totalNumPix/50
+                    avgNumQ = totalNumQueries/50
+                    avgTime = totalTime/50
+                    with open("STATS/CIFARPrelimAvgs.txt", mode = "a") as f: 
+                        f.write(f"\n\nStats from 50 iterations with tr_hi = {tr_hi}, tr_lo = {tr_lo}, num_xforms(b and m) = {num_xforms}")
+                        f.write(f"\nAverage transform_robustness: {avgTr}")
+                        f.write(f"\nAverage number of pixels: {avgNumPix}") 
+                        f.write(f"\nAverage number of queries: {avgNumQ} ") 
+                        f.write(f"\nAverage running time: {avgTime} seconds")
+
+                    
+    # veryEnd = time.time()
+    # with open("STATS/MNISTPrelimAvgs.txt", mode = "a") as f: 
+    #     f.write(f"\n Total time for all {count} iterations: {veryEnd - veryBig}")
+
+    
+    
+    
 
     timestart = time.time()
 
@@ -267,4 +408,6 @@ if __name__ == '__main__':
 
     with open("STATS/MNIST.txt", mode = "a") as f: 
         f.write("\nTotal running time: %.4f seconds" % (timeend - timestart))
-    # print("\n\nTotal running time: %.4f seconds\n" % (timeend - timestart))
+
+    
+    print("\n\nTotal running time: %.4f seconds\n" % (timeend - timestart))

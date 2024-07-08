@@ -20,11 +20,18 @@ def convert2Network(img, is_torch = True, net_size = 32, model_type = 'GTSRB'):
         if (is_torch):
             img = img.permute(1, 2, 0).detach().cpu().numpy()
 
+        if np.isnan(img).any():
+            assert(False)
         img = cv2.resize(img, (32, 32))
         if(len(img.shape) == 2):
             img = img[:,:,np.newaxis]
         img = torch.from_numpy(img).permute(2, 0, 1)
+        if np.isnan(img).any():
+            assert(False)
+
+        print("Before Clamp: img.shape:", img.shape, " torch.max(img): ", torch.max(img),  "torch.min(img): ", torch.min(img))
         img = torch.clamp(img, 0.0, 1.0)
+        print("After Clamp: img.shape:", img.shape, " torch.max(img): ", torch.max(img),  "torch.min(img): ", torch.min(img))
         assert(torch.max(img) <= 1.0 and torch.min(img) >= 0.0)
         if model_type == 'GTSRB':
             img = transforms.Normalize((0.5, 0.5, 0.5), (1.0, 1.0, 1.0))(img)
@@ -45,8 +52,10 @@ def convert2Network(img, is_torch = True, net_size = 32, model_type = 'GTSRB'):
 
         if(len(img.shape) == 2):
             img = img[:,:,np.newaxis]
+
         img = torch.from_numpy(img).permute(2, 0, 1)
         img = torch.clamp(img, 0.0, 1.0)
+        print("img.shape:", img.shape, " torch.max(img): ", torch.max(img),  "torch.min(img): ", torch.min(img))
         assert(torch.max(img) <= 1.0 and torch.min(img) >= 0.0)
 
     return img

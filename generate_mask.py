@@ -52,11 +52,12 @@ def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lb
     indices = []
 
 
+    strideSize = max(patch_size // stride_factor,1)
     # print("patch_size: ", patch_size, " stride_factor: ", stride_factor)
     if heatmap_file is None:
         # collect all valid patches
-        for i in range(0, mask.size()[1] - patch_size, patch_size // stride_factor): # 4
-            for j in range(0, mask.size()[2] - patch_size, patch_size // stride_factor): # 4
+        for i in range(0, mask.size()[1] - patch_size + 1, strideSize): # 4
+            for j in range(0, mask.size()[2] - patch_size + 1, strideSize): # 4
                 new_mask = torch.zeros(mask.size())
                 new_mask[:, i:min(i+patch_size, mask.size()[1]), j:min(j+patch_size, mask.size()[2])] = patch
                 new_mask = new_mask * mask

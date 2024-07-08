@@ -44,16 +44,12 @@ def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, it
     theta_np = theta.permute(1, 2, 0).numpy()
 
     theta_np_large = cv2.resize(theta_np, (x0_large.size()[2], x0_large.size()[1]))
-    # if(len(theta_np_large.shape) == 2):
-    #     theta_np_large = theta_np_large[:,:,np.newaxis]
-    
+
     theta_np_large = grayDim(theta_np_large)
     theta_np_large_torch = torch.from_numpy(theta_np_large).permute(2, 0, 1)
     comb_large = x0_large + theta_np_large_torch
     comb_np = comb_large.permute(1, 2, 0).numpy()
     comb_np = cv2.resize(comb_np, (mask.size()[2], mask.size()[1]))
-    # if(len(comb_np.shape) == 2):
-    #     comb_np = comb_np[:,:,np.newaxis]
     
     comb_np = grayDim(comb_np)
     comb_torch = torch.from_numpy(comb_np).permute(2, 0, 1)
@@ -70,9 +66,6 @@ def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, it
     if x0_large is not None:
         init_theta_np = best_theta.permute(1, 2, 0).numpy()
         init_theta_np = cv2.resize(init_theta_np, (x0_large.size()[2], x0_large.size()[1]))
-        # if(len(init_theta_np.shape) == 2):
-        #     init_theta_np = init_theta_np[:,:,np.newaxis]
-        
         init_theta_np = grayDim(init_theta_np)
 
         init_theta_lg_torch = torch.from_numpy(init_theta_np).permute(2, 0, 1)
@@ -111,7 +104,7 @@ def boost(model, x0_large, y0, mask, target_example, target = None, beta = 1, it
             opt_count += opt_ct
 
             gradient += (eps_ttt - eps)/beta * u
-            print("new eps eps beta", eps_ttt, eps, beta)
+            # print("new eps eps beta", eps_ttt, eps, beta)
 
             if bt and eps_ttt < min_g1:
                 min_g1 = eps_ttt
