@@ -1,0 +1,850 @@
+i = 0, attacked0: nbits = 32, TR = 0.8
+i = 0, attacked1: nbits = 38, TR = 0.09999999999999998
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+Incorrectly classified, pred = tensor([9], device='cuda:0') != lbl_v = 3
+i = 0, attacked2: nbits = 73, TR = 0.8
+i = 0, attacked3: nbits = 51, TR = 0.09999999999999998
+i = 0, attacked4: nbits = 72, TR = 0.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 0, attacked5: nbits = 16, TR = 1.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 0, attacked6: nbits = 0, TR = 1.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 0, attacked7: nbits = 0, TR = 1.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 0, attacked8: nbits = 86, TR = 0.30000000000000004
+i = 0, attacked9: nbits = 11, TR = 0.6
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 1, attacked0: nbits = 0, TR = 1.0
+i = 1, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.9999984502792358, prob lbl_t = 4 = 1.4955271465666442e-09.
+ SUCCESS: Prob for lbl_v = 9 = 1.000 is the highest prob
+all probs: [6.19091800e-09 5.28899413e-09 3.52019136e-10 1.52653423e-09
+ 1.49552715e-09 6.52484039e-11 1.07333725e-11 1.55939938e-06
+ 4.55587235e-11 9.99998450e-01]
+
+attacked1: prob lbl_v = 9 = 0.2845166027545929, prob lbl_t = 7 = 0.7153333425521851.
+ FAIL: Prob for lbl_v = 9 = 0.285, highest prob = 0.715 for class 7
+all probs: [2.5794466e-07 3.2859403e-05 4.3658609e-05 5.3025178e-07 5.6559995e-05
+ 1.6270773e-05 2.4085565e-09 7.1533334e-01 2.0537996e-09 2.8451660e-01]
+
+attacked2: prob lbl_v = 6 = 0.25027355551719666, prob lbl_t = 0 = 0.7316067218780518.
+ FAIL: Prob for lbl_v = 6 = 0.250, highest prob = 0.732 for class 0
+all probs: [7.3160672e-01 2.1079727e-03 1.5107918e-02 3.1842115e-05 5.3063079e-05
+ 2.8447022e-05 2.5027356e-01 5.0249702e-04 1.5737558e-05 2.7232809e-04]
+
+attacked3: prob lbl_v = 8 = 0.14331555366516113, prob lbl_t = 4 = 0.027039434760808945.
+ FAIL: Prob for lbl_v = 8 = 0.143, highest prob = 0.769 for class 6
+all probs: [1.4160894e-02 8.0102254e-03 1.5723161e-02 3.2020203e-04 2.7039435e-02
+ 1.6843062e-02 7.6852745e-01 1.5717832e-03 1.4331555e-01 4.4882586e-03]
+
+attacked4: prob lbl_v = 3 = 0.01590909995138645, prob lbl_t = 4 = 0.033978745341300964.
+ FAIL: Prob for lbl_v = 3 = 0.016, highest prob = 0.543 for class 7
+all probs: [0.0508318  0.07488074 0.02698273 0.0159091  0.03397875 0.01152527
+ 0.00559757 0.5425986  0.00099953 0.23669586]
+
+attacked5: prob lbl_v = 1 = 0.6493293642997742, prob lbl_t = 2 = 0.0010751066729426384.
+ SUCCESS: Prob for lbl_v = 1 = 0.649 is the highest prob
+all probs: [3.6034116e-06 6.4932936e-01 1.0751067e-03 1.2190498e-05 9.3944604e-05
+ 6.4320055e-05 2.5003013e-04 3.4880248e-01 1.1618800e-06 3.6779259e-04]
+
+attacked6: prob lbl_v = 2 = 0.9445362687110901, prob lbl_t = 8 = 4.3421519158037825e-10.
+ SUCCESS: Prob for lbl_v = 2 = 0.945 is the highest prob
+all probs: [3.8558528e-02 1.0045281e-05 9.4453627e-01 2.3535276e-07 9.0462123e-07
+ 1.2453354e-08 4.7994494e-08 1.6481372e-02 4.3421519e-10 4.1255270e-04]
+
+attacked7: prob lbl_v = 6 = 0.9999998807907104, prob lbl_t = 8 = 5.430151120422444e-11.
+ SUCCESS: Prob for lbl_v = 6 = 1.000 is the highest prob
+all probs: [6.7761803e-08 4.6955606e-11 3.3631571e-09 2.0597276e-12 8.5100572e-11
+ 2.7134424e-08 9.9999988e-01 1.2421391e-11 5.4301511e-11 3.3212198e-12]
+
+attacked8: prob lbl_v = 1 = 0.1223994791507721, prob lbl_t = 4 = 0.06381458044052124.
+ FAIL: Prob for lbl_v = 1 = 0.122, highest prob = 0.672 for class 9
+all probs: [2.1501905e-03 1.2239948e-01 6.6377171e-03 2.6656815e-03 6.3814580e-02
+ 7.4341949e-03 4.4925910e-04 1.1986926e-01 2.8323799e-03 6.7174721e-01]
+
+attacked9: prob lbl_v = 8 = 0.15466023981571198, prob lbl_t = 2 = 0.12161991745233536.
+ FAIL: Prob for lbl_v = 8 = 0.155, highest prob = 0.635 for class 7
+all probs: [2.07668487e-02 8.94817431e-03 1.21619917e-01 2.50324677e-03
+ 1.05030704e-04 9.61056867e-05 3.56009637e-04 6.35446489e-01
+ 1.54660240e-01 5.54979816e-02]
+
+i = 1, Testing on 100 unattacked images 
+num: 0, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 1, fail: pred: tensor([9], device='cuda:0'), lbl_v = 4
+
+num: 2, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 3, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 4, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 5, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 6, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 7, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 8, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 9, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 10, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 11, fail: pred: tensor([6], device='cuda:0'), lbl_v = 8
+
+num: 12, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 13, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 14, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 15, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 16, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 17, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 18, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 19, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 20, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 21, fail: pred: tensor([0], device='cuda:0'), lbl_v = 8
+
+num: 22, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 23, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 24, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 25, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 26, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 27, fail: pred: tensor([7], device='cuda:0'), lbl_v = 4
+
+num: 28, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 29, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 30, fail: pred: tensor([0], device='cuda:0'), lbl_v = 8
+
+num: 31, fail: pred: tensor([9], device='cuda:0'), lbl_v = 8
+
+num: 32, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 33, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 34, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 35, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 36, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 37, fail: pred: tensor([9], device='cuda:0'), lbl_v = 4
+
+num: 38, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 39, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 40, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 41, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 42, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 43, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 44, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 45, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 46, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 47, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 48, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 49, fail: pred: tensor([7], device='cuda:0'), lbl_v = 8
+
+num: 50, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 51, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 52, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 53, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 54, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 55, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 56, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 57, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 58, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 59, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 60, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 61, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 62, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 63, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 64, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 65, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 66, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 67, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 68, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 69, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 70, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 71, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 72, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 73, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 74, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 75, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 76, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 77, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 78, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 79, fail: pred: tensor([9], device='cuda:0'), lbl_v = 8
+
+num: 80, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 81, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 82, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 83, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 84, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 85, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 86, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 87, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 88, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 89, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 90, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 91, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 92, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 93, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 94, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 95, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 96, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 97, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 98, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 99, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 1, attacked1: nbits = 60, TR = 0.8
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+Incorrectly classified, pred = tensor([0], device='cuda:0') != lbl_v = 2
+i = 1, attacked2: nbits = 75, TR = 0.8
+attacked nbits = 0, checking img_v prediction
+Incorrectly classified, pred = tensor([9], device='cuda:0') != lbl_v = 8
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 1, attacked3: nbits = 55, TR = 0.0
+i = 1, attacked4: nbits = 119, TR = 0.30000000000000004
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 1, attacked5: nbits = 26, TR = 0.9
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+Incorrectly classified, pred = tensor([9], device='cuda:0') != lbl_v = 7
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 1, attacked6: nbits = 0, TR = 1.0
+i = 1, attacked7: nbits = 71, TR = 0.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 1, attacked8: nbits = 0, TR = 1.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 1, attacked9: nbits = 17, TR = 0.9
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 2, attacked0: nbits = 0, TR = 1.0
+i = 2, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.9999508857727051, prob lbl_t = 4 = 2.112591801051167e-06.
+ SUCCESS: Prob for lbl_v = 9 = 1.000 is the highest prob
+all probs: [1.3632011e-06 1.2636029e-06 2.0670937e-07 5.5918457e-07 2.1125918e-06
+ 1.1341353e-07 9.5208899e-09 4.3257605e-05 1.4705425e-07 9.9995089e-01]
+
+attacked1: prob lbl_v = 9 = 0.2917679250240326, prob lbl_t = 7 = 0.6014257073402405.
+ FAIL: Prob for lbl_v = 9 = 0.292, highest prob = 0.601 for class 7
+all probs: [2.2600605e-03 7.1487981e-03 4.3970808e-02 3.2667792e-04 1.6950414e-02
+ 3.6137320e-02 9.4681936e-06 6.0142571e-01 2.9272524e-06 2.9176793e-01]
+
+attacked2: prob lbl_v = 6 = 0.5441447496414185, prob lbl_t = 0 = 0.3793959617614746.
+ SUCCESS: Prob for lbl_v = 6 = 0.544 is the highest prob
+all probs: [3.7939596e-01 4.7608133e-02 1.8440648e-03 8.6185115e-05 5.6020519e-05
+ 2.4547191e-02 5.4414475e-01 1.8130555e-03 7.6244520e-05 4.2842617e-04]
+
+attacked3: prob lbl_v = 8 = 0.8523706793785095, prob lbl_t = 4 = 0.03725827485322952.
+ SUCCESS: Prob for lbl_v = 8 = 0.852 is the highest prob
+all probs: [4.03790735e-03 3.43791489e-03 2.34787408e-02 7.20473588e-04
+ 3.72582749e-02 1.08977975e-02 6.66286275e-02 6.43167179e-04
+ 8.52370679e-01 5.26400632e-04]
+
+attacked4: prob lbl_v = 3 = 0.0024049493949860334, prob lbl_t = 4 = 0.5570284724235535.
+ FAIL: Prob for lbl_v = 3 = 0.002, highest prob = 0.557 for class 4
+all probs: [0.00758593 0.01971059 0.01192014 0.00240495 0.5570285  0.12193061
+ 0.00310534 0.12577406 0.00628436 0.14425555]
+
+attacked5: prob lbl_v = 1 = 0.9028708934783936, prob lbl_t = 2 = 0.009613929316401482.
+ SUCCESS: Prob for lbl_v = 1 = 0.903 is the highest prob
+all probs: [1.8301983e-04 9.0287089e-01 9.6139293e-03 6.4081891e-05 4.3814853e-03
+ 1.1743580e-03 2.0002497e-03 7.7297203e-02 3.1389696e-05 2.3834244e-03]
+
+attacked6: prob lbl_v = 2 = 0.9506931304931641, prob lbl_t = 8 = 1.1484448236842582e-07.
+ SUCCESS: Prob for lbl_v = 2 = 0.951 is the highest prob
+all probs: [4.4107903e-02 2.6015274e-05 9.5069313e-01 2.2486349e-06 4.9850554e-05
+ 8.5002603e-07 5.1760787e-07 4.8531094e-03 1.1484448e-07 2.6625340e-04]
+
+attacked7: prob lbl_v = 6 = 0.22732922434806824, prob lbl_t = 8 = 0.16546280682086945.
+ FAIL: Prob for lbl_v = 6 = 0.227, highest prob = 0.244 for class 0
+all probs: [0.24367669 0.00166055 0.11363573 0.0217777  0.01636013 0.01766085
+ 0.22732922 0.00322813 0.1654628  0.18920818]
+
+attacked8: prob lbl_v = 1 = 0.9952563643455505, prob lbl_t = 4 = 2.0817244148929603e-05.
+ SUCCESS: Prob for lbl_v = 1 = 0.995 is the highest prob
+all probs: [8.3221466e-06 9.9525636e-01 3.3291589e-04 2.9260168e-09 2.0817244e-05
+ 9.8625222e-08 1.3368020e-06 4.3781046e-03 4.1314132e-07 1.6112829e-06]
+
+attacked9: prob lbl_v = 8 = 0.6209418773651123, prob lbl_t = 2 = 0.18798837065696716.
+ SUCCESS: Prob for lbl_v = 8 = 0.621 is the highest prob
+all probs: [0.06660355 0.01173874 0.18798837 0.00468838 0.00067312 0.00134219
+ 0.0027529  0.08928633 0.6209419  0.01398451]
+
+i = 2, Testing on 100 unattacked images 
+num: 0, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 1, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 2, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 3, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 4, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 5, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 6, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 7, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 8, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 9, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 10, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 11, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 12, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 13, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 14, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 15, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 16, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 17, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 18, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 19, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 20, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 21, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 22, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 23, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 24, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 25, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 26, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 27, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 28, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 29, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 30, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 31, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 32, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 33, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 34, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 35, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 36, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 37, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 38, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 39, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 40, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 41, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 42, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 43, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 44, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 45, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 46, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 47, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 48, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 49, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 50, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 51, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 52, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 53, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 54, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 55, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 56, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 57, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 58, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 59, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 60, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 61, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 62, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 63, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 64, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 65, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 66, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 67, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 68, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 69, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 70, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 71, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 72, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 73, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 74, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 75, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 76, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 77, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 78, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 79, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 80, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 81, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 82, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 83, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 84, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 85, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 86, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 87, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 88, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 89, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 90, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 91, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 92, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 93, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 94, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 95, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 96, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 97, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 98, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 99, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 2, attacked1: nbits = 93, TR = 1.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 2, attacked2: nbits = 85, TR = 0.30000000000000004
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 2, attacked3: nbits = 76, TR = 0.4
+i = 2, attacked4: nbits = 99, TR = 0.4
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 2, attacked5: nbits = 24, TR = 0.5
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 2, attacked6: nbits = 0, TR = 1.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 2, attacked7: nbits = 0, TR = 1.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 2, attacked8: nbits = 0, TR = 1.0
+i = 2, attacked9: nbits = 20, TR = 0.7
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 3, attacked0: nbits = 27, TR = 0.09999999999999998
+i = 3, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.9965567588806152, prob lbl_t = 4 = 0.001477322424761951.
+ SUCCESS: Prob for lbl_v = 9 = 0.997 is the highest prob
+all probs: [8.2580496e-05 4.0111834e-05 2.6385396e-04 6.1385712e-05 1.4773224e-03
+ 7.6476117e-06 1.4480120e-06 1.5041149e-03 4.8253119e-06 9.9655676e-01]
+
+attacked1: prob lbl_v = 9 = 0.7621660232543945, prob lbl_t = 7 = 0.1511116772890091.
+ SUCCESS: Prob for lbl_v = 9 = 0.762 is the highest prob
+all probs: [4.7664545e-03 1.5634089e-03 5.6667071e-02 6.4140820e-04 1.4472406e-02
+ 8.5630054e-03 2.4449029e-05 1.5111168e-01 2.4153247e-05 7.6216602e-01]
+
+attacked2: prob lbl_v = 6 = 0.4879125952720642, prob lbl_t = 0 = 0.2361760288476944.
+ SUCCESS: Prob for lbl_v = 6 = 0.488 is the highest prob
+all probs: [0.23617603 0.04079961 0.05957575 0.00832044 0.00423555 0.11954758
+ 0.4879126  0.01887465 0.00622465 0.01833322]
+
+attacked3: prob lbl_v = 8 = 0.5176867246627808, prob lbl_t = 4 = 0.27145668864250183.
+ SUCCESS: Prob for lbl_v = 8 = 0.518 is the highest prob
+all probs: [0.00499973 0.00595457 0.14021616 0.00402201 0.2714567  0.00806086
+ 0.04051705 0.00242891 0.5176867  0.00465734]
+
+attacked4: prob lbl_v = 3 = 0.038281939923763275, prob lbl_t = 4 = 0.1975567638874054.
+ FAIL: Prob for lbl_v = 3 = 0.038, highest prob = 0.535 for class 9
+all probs: [0.03000391 0.01111207 0.03932109 0.03828194 0.19755676 0.06034759
+ 0.0147534  0.03702305 0.03666729 0.534933  ]
+
+attacked5: prob lbl_v = 1 = 0.5765961408615112, prob lbl_t = 2 = 0.03577364608645439.
+ SUCCESS: Prob for lbl_v = 1 = 0.577 is the highest prob
+all probs: [0.0014562  0.57659614 0.03577365 0.00086776 0.00933534 0.0065415
+ 0.00624459 0.30977565 0.00065986 0.0527493 ]
+
+attacked6: prob lbl_v = 2 = 0.9688549637794495, prob lbl_t = 8 = 3.662193819309323e-07.
+ SUCCESS: Prob for lbl_v = 2 = 0.969 is the highest prob
+all probs: [2.1590117e-02 2.0367750e-05 9.6885496e-01 1.9327515e-06 6.7577523e-05
+ 6.3100106e-07 1.3585486e-06 6.2051462e-03 3.6621938e-07 3.2574851e-03]
+
+attacked7: prob lbl_v = 6 = 0.9999897480010986, prob lbl_t = 8 = 3.189727522112662e-07.
+ SUCCESS: Prob for lbl_v = 6 = 1.000 is the highest prob
+all probs: [7.14920020e-07 1.54875206e-08 6.64721165e-06 4.38582104e-09
+ 1.12961104e-07 2.32619868e-06 9.99989748e-01 5.50914425e-10
+ 3.18972752e-07 3.77793574e-10]
+
+attacked8: prob lbl_v = 1 = 0.972606897354126, prob lbl_t = 4 = 0.00011861817620228976.
+ SUCCESS: Prob for lbl_v = 1 = 0.973 is the highest prob
+all probs: [1.00950951e-04 9.72606897e-01 3.94124258e-03 1.05551344e-07
+ 1.18618176e-04 5.53166558e-07 1.30703847e-05 2.31499691e-02
+ 6.65871630e-06 6.18969207e-05]
+
+attacked9: prob lbl_v = 8 = 0.6467908620834351, prob lbl_t = 2 = 0.1850755661725998.
+ SUCCESS: Prob for lbl_v = 8 = 0.647 is the highest prob
+all probs: [1.7660648e-02 4.8284493e-03 1.8507557e-01 1.1653426e-02 1.8067210e-03
+ 5.2987522e-04 2.1632612e-03 1.1049538e-01 6.4679086e-01 1.8995849e-02]
+
+i = 3, Testing on 100 unattacked images 
+num: 0, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 1, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 2, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 3, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 4, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 5, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 6, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 7, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 8, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 9, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 10, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 11, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 12, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 13, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 14, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 15, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 16, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 17, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 18, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 19, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 20, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 21, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 22, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 23, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 24, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 25, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 26, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 27, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 28, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 29, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 30, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 31, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 32, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 33, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 34, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 35, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 36, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 37, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 38, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 39, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 40, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 41, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 42, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 43, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 44, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 45, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 46, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 47, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 48, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 49, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 50, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 51, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 52, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 53, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 54, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 55, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 56, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 57, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 58, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 59, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 60, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 61, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 62, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 63, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 64, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 65, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 66, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 67, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 68, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 69, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 70, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 71, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 72, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 73, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 74, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 75, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 76, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 77, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 78, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 79, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 80, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 81, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 82, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 83, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 84, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 85, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 86, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 87, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 88, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 89, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 90, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 91, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 92, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 93, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 94, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 95, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 96, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 97, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 98, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 99, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+i = 3, attacked1: nbits = 50, TR = 0.5
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 3, attacked2: nbits = 102, TR = 0.19999999999999996
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 3, attacked3: nbits = 64, TR = 0.19999999999999996
+i = 3, attacked4: nbits = 94, TR = 0.6
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 3, attacked5: nbits = 44, TR = 0.6
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 3, attacked6: nbits = 0, TR = 1.0
+i = 3, attacked7: nbits = 75, TR = 0.5
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 3, attacked8: nbits = 0, TR = 1.0
+i = 3, attacked9: nbits = 25, TR = 0.7
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 4, attacked0: nbits = 0, TR = 1.0
+i = 4, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.9998519420623779, prob lbl_t = 4 = 1.1297140190436039e-05.
+ SUCCESS: Prob for lbl_v = 9 = 1.000 is the highest prob
+all probs: [1.0229044e-05 7.4390914e-06 3.7471368e-06 2.0634525e-05 1.1297140e-05
+ 4.4592764e-07 3.1898568e-07 8.7244065e-05 6.7313258e-06 9.9985194e-01]
+
+attacked1: prob lbl_v = 9 = 0.6712392568588257, prob lbl_t = 7 = 0.2566782534122467.
+ SUCCESS: Prob for lbl_v = 9 = 0.671 is the highest prob
+all probs: [1.8302585e-03 4.0288107e-03 2.3841305e-02 5.4880432e-03 3.2794215e-02
+ 2.1772846e-03 1.5647315e-04 2.5667825e-01 1.7661033e-03 6.7123926e-01]
+
+attacked2: prob lbl_v = 6 = 0.43938419222831726, prob lbl_t = 0 = 0.37501221895217896.
+ SUCCESS: Prob for lbl_v = 6 = 0.439 is the highest prob
+all probs: [3.7501222e-01 1.2151748e-02 2.5537796e-02 5.6209564e-02 2.0745135e-04
+ 5.6709379e-02 4.3938419e-01 6.6777212e-03 1.1151132e-02 1.6958818e-02]
+
+attacked3: prob lbl_v = 8 = 0.8036670684814453, prob lbl_t = 4 = 0.11836456507444382.
+ SUCCESS: Prob for lbl_v = 8 = 0.804 is the highest prob
+all probs: [0.00224449 0.00426353 0.01775258 0.00719773 0.11836457 0.01080417
+ 0.03292352 0.00169911 0.80366707 0.00108319]
+
+attacked4: prob lbl_v = 3 = 0.15643762052059174, prob lbl_t = 4 = 0.2860296666622162.
+ FAIL: Prob for lbl_v = 3 = 0.156, highest prob = 0.286 for class 4
+all probs: [0.03983401 0.01099    0.02852658 0.15643762 0.28602967 0.06018817
+ 0.02274001 0.03730775 0.07611211 0.28183404]
+
+attacked5: prob lbl_v = 1 = 0.5192387104034424, prob lbl_t = 2 = 0.0878065824508667.
+ SUCCESS: Prob for lbl_v = 1 = 0.519 is the highest prob
+all probs: [0.0099078  0.5192387  0.08780658 0.00682619 0.01607253 0.0053539
+ 0.02763277 0.24391004 0.01148354 0.07176796]
+
+attacked6: prob lbl_v = 2 = 0.9336770176887512, prob lbl_t = 8 = 2.1145204300410114e-05.
+ SUCCESS: Prob for lbl_v = 2 = 0.934 is the highest prob
+all probs: [5.7889920e-02 4.8612288e-05 9.3367702e-01 4.6661342e-05 1.0014847e-04
+ 1.3895965e-06 2.7599253e-05 3.8407643e-03 2.1145204e-05 4.3467735e-03]
+
+attacked7: prob lbl_v = 6 = 0.25233006477355957, prob lbl_t = 8 = 0.26934128999710083.
+ FAIL: Prob for lbl_v = 6 = 0.252, highest prob = 0.269 for class 8
+all probs: [0.09078909 0.00515692 0.1390463  0.04035325 0.03620447 0.02134065
+ 0.25233006 0.00955814 0.2693413  0.1358798 ]
+
+attacked8: prob lbl_v = 1 = 0.9731263518333435, prob lbl_t = 4 = 0.00016933387087192386.
+ SUCCESS: Prob for lbl_v = 1 = 0.973 is the highest prob
+all probs: [1.6979473e-04 9.7312635e-01 2.3159648e-03 4.4953597e-07 1.6933387e-04
+ 8.8368955e-07 2.4756368e-05 2.3894928e-02 3.8245467e-05 2.5917983e-04]
+
+attacked9: prob lbl_v = 8 = 0.498366117477417, prob lbl_t = 2 = 0.045703399926424026.
+ SUCCESS: Prob for lbl_v = 8 = 0.498 is the highest prob
+all probs: [0.00544706 0.0035061  0.0457034  0.04519958 0.02924913 0.02272943
+ 0.0010982  0.19142427 0.49836612 0.15727672]
+
+i = 4, Testing on 100 unattacked images 
+num: 0, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 1, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 2, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 3, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 4, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 5, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 6, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 7, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 8, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 9, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 10, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 11, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 12, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 13, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 14, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 15, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 16, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 17, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 18, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 19, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 20, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 21, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 22, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 23, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 24, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 25, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 26, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 27, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 28, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 29, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 30, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 31, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 32, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 33, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 34, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 35, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 36, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 37, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 38, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 39, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 40, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 41, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 42, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 43, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 44, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 45, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 46, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 47, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 48, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 49, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 50, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 51, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 52, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 53, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 54, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 55, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 56, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 57, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 58, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 59, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 60, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 61, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 62, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 63, success: pred: tensor([4], device='cuda:0') = lbl_v: 4
+num: 64, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 65, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 66, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 67, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 68, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 69, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 70, success: pred: tensor([6], device='cuda:0') = lbl_v: 6
+num: 71, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 72, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 73, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 74, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 75, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 76, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 77, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 78, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 79, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 80, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 81, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 82, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 83, success: pred: tensor([3], device='cuda:0') = lbl_v: 3
+num: 84, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 85, success: pred: tensor([5], device='cuda:0') = lbl_v: 5
+num: 86, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 87, success: pred: tensor([2], device='cuda:0') = lbl_v: 2
+num: 88, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 89, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+num: 90, success: pred: tensor([8], device='cuda:0') = lbl_v: 8
+num: 91, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 92, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 93, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 94, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 95, success: pred: tensor([1], device='cuda:0') = lbl_v: 1
+num: 96, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 97, success: pred: tensor([7], device='cuda:0') = lbl_v: 7
+num: 98, success: pred: tensor([0], device='cuda:0') = lbl_v: 0
+num: 99, success: pred: tensor([9], device='cuda:0') = lbl_v: 9
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 4, attacked1: nbits = 45, TR = 0.4
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 4, attacked2: nbits = 107, TR = 0.19999999999999996
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 4, attacked3: nbits = 54, TR = 0.30000000000000004
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 4, attacked4: nbits = 59, TR = 0.4
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 4, attacked5: nbits = 50, TR = 0.9
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 4, attacked6: nbits = 0, TR = 1.0
+i = 4, attacked7: nbits = 83, TR = 0.30000000000000004
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+i = 4, attacked8: nbits = 59, TR = 0.19999999999999996
+i = 4, attacked9: nbits = 30, TR = 1.0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0
+attacked nbits = 0, checking img_v prediction
+CORRECTLY CLASSIFIED BUT NBITS = 0

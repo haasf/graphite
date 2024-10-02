@@ -1,0 +1,7 @@
+
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.0, num_xforms(b and m) = 0
+Average transform_robustness: 1.0
+Average number of pixels: 119.12
+Average number of queries: 1292.88 
+Average running time: 8.18227761745453 seconds

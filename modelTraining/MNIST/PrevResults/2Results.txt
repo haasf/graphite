@@ -1,0 +1,452 @@
+i = 0, attacked0: nbits = 32, TR = 0.8
+i = 0, attacked1: nbits = 38, TR = 0.09999999999999998
+i = 0, attacked2: nbits = 52, TR = 0.7
+i = 0, attacked3: nbits = 64, TR = 0.19999999999999996
+i = 0, attacked4: nbits = 125, TR = 0.6
+i = 0, attacked5: nbits = 14, TR = 1.0
+i = 0, attacked6: nbits = 0, TR = 1.0
+i = 0, attacked7: nbits = 0, TR = 1.0
+i = 0, attacked8: nbits = 0, TR = 1.0
+i = 0, attacked9: nbits = 10, TR = 0.6
+i = 1, attacked0: nbits = 0, TR = 1.0
+i = 1, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 1.0, prob lbl_t = 4 = 5.272339786976943e-10.
+ SUCCESS: Prob for lbl_v = 9 = 1.000 is the highest prob
+all probs: [3.1780198e-10 1.0686186e-10 2.1051903e-11 3.6544470e-10 5.2723398e-10
+ 7.6610288e-11 7.5183620e-13 1.7932095e-08 2.2984378e-11 1.0000000e+00]
+
+attacked1: prob lbl_v = 9 = 0.9877095222473145, prob lbl_t = 7 = 0.01220838911831379.
+ SUCCESS: Prob for lbl_v = 9 = 0.988 is the highest prob
+all probs: [6.5139226e-08 1.6520478e-06 3.1364369e-05 7.9475598e-08 2.8005948e-05
+ 2.1012946e-05 1.2478523e-09 1.2208389e-02 1.8317332e-09 9.8770952e-01]
+
+attacked2: prob lbl_v = 6 = 0.9873875975608826, prob lbl_t = 0 = 0.007352354004979134.
+ SUCCESS: Prob for lbl_v = 6 = 0.987 is the highest prob
+all probs: [7.3523540e-03 6.0841272e-04 7.5930060e-05 2.4638024e-07 1.0881691e-07
+ 4.4840006e-03 9.8738760e-01 2.4912656e-06 2.4756542e-07 8.8574023e-05]
+
+attacked3: prob lbl_v = 8 = 0.08472104370594025, prob lbl_t = 4 = 0.03666628897190094.
+ FAIL: Prob for lbl_v = 8 = 0.085, highest prob = 0.520 for class 6
+all probs: [3.3502451e-03 1.4635574e-03 2.7331701e-01 2.5807146e-04 3.6666289e-02
+ 3.5939325e-02 5.2012020e-01 2.6766048e-04 8.4721044e-02 4.3896638e-02]
+
+attacked4: prob lbl_v = 3 = 0.0014256351860240102, prob lbl_t = 4 = 0.18453103303909302.
+ FAIL: Prob for lbl_v = 3 = 0.001, highest prob = 0.654 for class 9
+all probs: [0.01250943 0.04119161 0.01231638 0.00142564 0.18453103 0.05874147
+ 0.01176506 0.02009742 0.00332116 0.6541008 ]
+
+attacked5: prob lbl_v = 1 = 0.7629841566085815, prob lbl_t = 2 = 0.002473324304446578.
+ SUCCESS: Prob for lbl_v = 1 = 0.763 is the highest prob
+all probs: [3.7186997e-05 7.6298416e-01 2.4733243e-03 1.0806425e-04 1.3143426e-03
+ 6.4295280e-04 1.8865020e-03 2.0101435e-01 4.0927087e-05 2.9498221e-02]
+
+attacked6: prob lbl_v = 2 = 0.9971241354942322, prob lbl_t = 8 = 2.0531130962009314e-10.
+ SUCCESS: Prob for lbl_v = 2 = 0.997 is the highest prob
+all probs: [2.9335683e-04 2.7326826e-07 9.9712414e-01 4.4448756e-09 1.0198247e-07
+ 6.3283359e-08 5.1827382e-09 2.6588424e-04 2.0531131e-10 2.3161012e-03]
+
+attacked7: prob lbl_v = 6 = 0.9999998807907104, prob lbl_t = 8 = 1.4545897819573383e-10.
+ SUCCESS: Prob for lbl_v = 6 = 1.000 is the highest prob
+all probs: [2.4586960e-08 3.0416149e-11 3.9391072e-08 3.2141468e-12 4.0865204e-11
+ 7.3217976e-08 9.9999988e-01 1.8865502e-12 1.4545898e-10 9.4905004e-12]
+
+attacked8: prob lbl_v = 1 = 0.9952074885368347, prob lbl_t = 4 = 0.00010374981502536684.
+ SUCCESS: Prob for lbl_v = 1 = 0.995 is the highest prob
+all probs: [6.75681395e-06 9.95207489e-01 1.46933220e-04 1.60056957e-09
+ 1.03749815e-04 1.29730381e-07 1.38924111e-06 4.38646926e-03
+ 4.73786542e-07 1.46556777e-04]
+
+attacked9: prob lbl_v = 8 = 0.7746226787567139, prob lbl_t = 2 = 0.060674335807561874.
+ SUCCESS: Prob for lbl_v = 8 = 0.775 is the highest prob
+all probs: [1.9914355e-02 6.6763425e-04 6.0674336e-02 2.8592485e-03 2.5871193e-05
+ 1.8466735e-03 3.6355427e-03 1.0506678e-02 7.7462268e-01 1.2524706e-01]
+
+i = 1, attacked1: nbits = 85, TR = 0.5
+i = 1, attacked2: nbits = 97, TR = 0.7
+i = 1, attacked3: nbits = 48, TR = 0.09999999999999998
+i = 1, attacked4: nbits = 154, TR = 0.30000000000000004
+i = 1, attacked5: nbits = 24, TR = 0.9
+i = 1, attacked6: nbits = 0, TR = 1.0
+i = 1, attacked7: nbits = 0, TR = 1.0
+i = 1, attacked8: nbits = 0, TR = 1.0
+i = 1, attacked9: nbits = 12, TR = 0.8
+i = 2, attacked0: nbits = 0, TR = 1.0
+i = 2, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.9999876022338867, prob lbl_t = 4 = 2.9020614533692424e-07.
+ SUCCESS: Prob for lbl_v = 9 = 1.000 is the highest prob
+all probs: [1.9666727e-07 1.5460783e-07 2.6987767e-08 2.4328796e-07 2.9020615e-07
+ 2.5665456e-08 1.0455733e-09 1.1579117e-05 1.8322414e-08 9.9998760e-01]
+
+attacked1: prob lbl_v = 9 = 0.15105611085891724, prob lbl_t = 7 = 0.7940117120742798.
+ FAIL: Prob for lbl_v = 9 = 0.151, highest prob = 0.794 for class 7
+all probs: [2.2752774e-03 1.5272970e-03 2.7778696e-02 3.8594095e-04 2.0405855e-02
+ 2.3991575e-03 4.7457157e-05 7.9401171e-01 1.1262902e-04 1.5105611e-01]
+
+attacked2: prob lbl_v = 6 = 0.1591571569442749, prob lbl_t = 0 = 0.6108962297439575.
+ FAIL: Prob for lbl_v = 6 = 0.159, highest prob = 0.611 for class 0
+all probs: [6.1089623e-01 1.4415905e-03 1.2543355e-02 1.0014416e-03 7.2571274e-06
+ 2.0563902e-01 1.5915716e-01 1.7076533e-04 9.0707608e-06 9.1340868e-03]
+
+attacked3: prob lbl_v = 8 = 0.6554282307624817, prob lbl_t = 4 = 0.06442715227603912.
+ SUCCESS: Prob for lbl_v = 8 = 0.655 is the highest prob
+all probs: [8.6639458e-03 8.5473303e-03 4.7686145e-02 5.4792297e-04 6.4427152e-02
+ 6.6432364e-02 1.4143015e-01 3.5483323e-03 6.5542823e-01 3.2884288e-03]
+
+attacked4: prob lbl_v = 3 = 0.0060288021340966225, prob lbl_t = 4 = 0.3607024550437927.
+ FAIL: Prob for lbl_v = 3 = 0.006, highest prob = 0.361 for class 4
+all probs: [0.01228532 0.13832429 0.04090836 0.0060288  0.36070246 0.05071281
+ 0.02812328 0.18516457 0.01524262 0.16250755]
+
+attacked5: prob lbl_v = 1 = 0.6790258884429932, prob lbl_t = 2 = 0.017454346641898155.
+ SUCCESS: Prob for lbl_v = 1 = 0.679 is the highest prob
+all probs: [1.9137458e-04 6.7902589e-01 1.7454347e-02 1.5354094e-04 1.5221052e-03
+ 2.7486901e-03 4.3709530e-03 2.8844362e-01 9.7057011e-05 5.9924275e-03]
+
+attacked6: prob lbl_v = 2 = 0.9885340332984924, prob lbl_t = 8 = 1.0395810434715713e-08.
+ SUCCESS: Prob for lbl_v = 2 = 0.989 is the highest prob
+all probs: [1.0680633e-02 2.2113186e-06 9.8853403e-01 1.6199557e-07 3.3956767e-06
+ 2.5617848e-07 1.3455494e-07 6.0801680e-04 1.0395810e-08 1.7115196e-04]
+
+attacked7: prob lbl_v = 6 = 0.9999967813491821, prob lbl_t = 8 = 1.360964407837173e-08.
+ SUCCESS: Prob for lbl_v = 6 = 1.000 is the highest prob
+all probs: [4.9936091e-07 1.8436013e-09 2.1278215e-06 2.3284852e-10 5.5007439e-09
+ 5.5913716e-07 9.9999678e-01 1.4639791e-10 1.3609644e-08 1.8878996e-10]
+
+attacked8: prob lbl_v = 1 = 0.9638532996177673, prob lbl_t = 4 = 0.00025993550661951303.
+ SUCCESS: Prob for lbl_v = 1 = 0.964 is the highest prob
+all probs: [1.0542630e-05 9.6385330e-01 1.6137032e-03 1.7762053e-08 2.5993551e-04
+ 7.2680274e-07 4.5808042e-06 3.4232151e-02 1.8542983e-06 2.3309904e-05]
+
+attacked9: prob lbl_v = 8 = 0.7555438876152039, prob lbl_t = 2 = 0.10472944378852844.
+ SUCCESS: Prob for lbl_v = 8 = 0.756 is the highest prob
+all probs: [5.18034920e-02 5.11808041e-03 1.04729444e-01 4.44128690e-03
+ 4.89766826e-04 4.15698346e-03 7.73551036e-03 3.86975035e-02
+ 7.55543888e-01 2.72840057e-02]
+
+i = 2, attacked1: nbits = 91, TR = 0.6
+i = 2, attacked2: nbits = 105, TR = 0.7
+i = 2, attacked3: nbits = 0, TR = 1.0
+i = 2, attacked4: nbits = 120, TR = 0.4
+i = 2, attacked5: nbits = 23, TR = 0.6
+i = 2, attacked6: nbits = 0, TR = 1.0
+i = 2, attacked7: nbits = 71, TR = 0.0
+i = 2, attacked8: nbits = 43, TR = 0.0
+i = 2, attacked9: nbits = 17, TR = 0.8
+i = 3, attacked0: nbits = 0, TR = 1.0
+i = 3, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.9999743700027466, prob lbl_t = 4 = 1.7732141941451118e-06.
+ SUCCESS: Prob for lbl_v = 9 = 1.000 is the highest prob
+all probs: [2.3504113e-06 1.5011606e-06 4.2385770e-07 3.4857187e-06 1.7732142e-06
+ 3.1636853e-07 2.9198274e-08 1.5456657e-05 2.2658557e-07 9.9997437e-01]
+
+attacked1: prob lbl_v = 9 = 0.7162173986434937, prob lbl_t = 7 = 0.163614884018898.
+ SUCCESS: Prob for lbl_v = 9 = 0.716 is the highest prob
+all probs: [1.0785164e-02 4.3859319e-03 4.9089644e-02 3.5849190e-03 1.9725066e-02
+ 3.2128587e-02 3.2851243e-04 1.6361488e-01 1.3989567e-04 7.1621740e-01]
+
+attacked2: prob lbl_v = 6 = 0.5614810585975647, prob lbl_t = 0 = 0.37568163871765137.
+ SUCCESS: Prob for lbl_v = 6 = 0.561 is the highest prob
+all probs: [3.75681639e-01 3.68315657e-03 3.24649401e-02 2.74420949e-03
+ 5.45549774e-05 1.58142578e-02 5.61481059e-01 1.05697785e-04
+ 1.14489361e-04 7.85603747e-03]
+
+attacked3: prob lbl_v = 8 = 0.17722706496715546, prob lbl_t = 4 = 3.85292014470906e-06.
+ FAIL: Prob for lbl_v = 8 = 0.177, highest prob = 0.585 for class 6
+all probs: [1.2428413e-01 3.2401473e-05 5.9613902e-03 6.1435788e-03 3.8529201e-06
+ 1.0660389e-02 5.8480561e-01 2.4889086e-06 1.7722706e-01 9.0879068e-02]
+
+attacked4: prob lbl_v = 3 = 0.06958289444446564, prob lbl_t = 4 = 0.2654108703136444.
+ FAIL: Prob for lbl_v = 3 = 0.070, highest prob = 0.450 for class 9
+all probs: [0.02432809 0.03233034 0.01221188 0.06958289 0.26541087 0.06518427
+ 0.03408212 0.01449237 0.03218041 0.4501967 ]
+
+attacked5: prob lbl_v = 1 = 0.845215380191803, prob lbl_t = 2 = 0.02392655797302723.
+ SUCCESS: Prob for lbl_v = 1 = 0.845 is the highest prob
+all probs: [3.34012177e-04 8.45215380e-01 2.39265580e-02 2.48699216e-04
+ 1.90075731e-03 1.54389709e-03 4.95913299e-03 1.13664664e-01
+ 1.79130642e-04 8.02774448e-03]
+
+attacked6: prob lbl_v = 2 = 0.9608250260353088, prob lbl_t = 8 = 2.658802316091169e-07.
+ SUCCESS: Prob for lbl_v = 2 = 0.961 is the highest prob
+all probs: [3.7482884e-02 1.1606169e-05 9.6082503e-01 2.5166710e-06 8.5510728e-06
+ 1.5823688e-06 2.5490021e-06 2.3101321e-04 2.6588023e-07 1.4339923e-03]
+
+attacked7: prob lbl_v = 6 = 0.5205511450767517, prob lbl_t = 8 = 0.09006024152040482.
+ SUCCESS: Prob for lbl_v = 6 = 0.521 is the highest prob
+all probs: [0.08046164 0.00486657 0.08155704 0.0101094  0.02790282 0.04041268
+ 0.52055115 0.01013825 0.09006024 0.13394023]
+
+attacked8: prob lbl_v = 1 = 0.35364577174186707, prob lbl_t = 4 = 0.06943690776824951.
+ FAIL: Prob for lbl_v = 1 = 0.354, highest prob = 0.390 for class 7
+all probs: [1.4359786e-03 3.5364577e-01 2.4151921e-03 3.8065395e-05 6.9436908e-02
+ 2.3316294e-03 2.0823843e-04 3.9028570e-01 6.9196876e-03 1.7328285e-01]
+
+attacked9: prob lbl_v = 8 = 0.7588859796524048, prob lbl_t = 2 = 0.1085708886384964.
+ SUCCESS: Prob for lbl_v = 8 = 0.759 is the highest prob
+all probs: [6.5981872e-02 3.6395653e-03 1.0857089e-01 2.4379715e-02 2.0261056e-04
+ 2.2063218e-03 1.3001382e-02 7.9371594e-03 7.5888598e-01 1.5194478e-02]
+
+i = 3, attacked1: nbits = 97, TR = 0.6
+i = 3, attacked2: nbits = 0, TR = 1.0
+i = 3, attacked3: nbits = 67, TR = 0.6
+i = 3, attacked4: nbits = 78, TR = 0.0
+i = 3, attacked5: nbits = 26, TR = 0.19999999999999996
+i = 3, attacked6: nbits = 0, TR = 1.0
+i = 3, attacked7: nbits = 0, TR = 1.0
+i = 3, attacked8: nbits = 69, TR = 0.4
+i = 3, attacked9: nbits = 23, TR = 0.9
+i = 4, attacked0: nbits = 0, TR = 1.0
+i = 4, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.9998422861099243, prob lbl_t = 4 = 6.2718982007936575e-06.
+ SUCCESS: Prob for lbl_v = 9 = 1.000 is the highest prob
+all probs: [1.2269338e-05 1.5628755e-05 1.6595390e-06 1.0619969e-05 6.2718982e-06
+ 9.1417115e-07 1.2598542e-07 1.0873376e-04 1.4694876e-06 9.9984229e-01]
+
+attacked1: prob lbl_v = 9 = 0.2215435951948166, prob lbl_t = 7 = 0.4298683702945709.
+ FAIL: Prob for lbl_v = 9 = 0.222, highest prob = 0.430 for class 7
+all probs: [0.03091013 0.01484351 0.10019708 0.00742973 0.09951136 0.08737544
+ 0.00276013 0.42986837 0.00556072 0.2215436 ]
+
+attacked2: prob lbl_v = 6 = 0.9961095452308655, prob lbl_t = 0 = 1.831350709835533e-05.
+ SUCCESS: Prob for lbl_v = 6 = 0.996 is the highest prob
+all probs: [1.8313507e-05 2.3969987e-03 2.6639314e-05 4.0837963e-07 5.2085093e-06
+ 1.4259861e-03 9.9610955e-01 2.0995617e-07 1.6789176e-05 5.1063157e-08]
+
+attacked3: prob lbl_v = 8 = 0.6412087082862854, prob lbl_t = 4 = 0.17700529098510742.
+ SUCCESS: Prob for lbl_v = 8 = 0.641 is the highest prob
+all probs: [0.01445086 0.01426513 0.08607432 0.00275054 0.17700529 0.01283544
+ 0.04060192 0.00377866 0.6412087  0.00702913]
+
+attacked4: prob lbl_v = 3 = 0.1294318288564682, prob lbl_t = 4 = 0.2830101549625397.
+ FAIL: Prob for lbl_v = 3 = 0.129, highest prob = 0.283 for class 4
+all probs: [0.03226309 0.09434132 0.04492922 0.12943183 0.28301015 0.07669417
+ 0.13552365 0.03068978 0.07740731 0.09570958]
+
+attacked5: prob lbl_v = 1 = 0.8018810749053955, prob lbl_t = 2 = 0.01630243845283985.
+ SUCCESS: Prob for lbl_v = 1 = 0.802 is the highest prob
+all probs: [7.0821517e-04 8.0188107e-01 1.6302438e-02 4.0994349e-04 1.9809834e-03
+ 5.9202188e-03 4.5892457e-03 1.4783803e-01 7.5087859e-04 1.9619027e-02]
+
+attacked6: prob lbl_v = 2 = 0.8630650043487549, prob lbl_t = 8 = 2.785871856758604e-06.
+ SUCCESS: Prob for lbl_v = 2 = 0.863 is the highest prob
+all probs: [1.3315919e-01 8.7804343e-05 8.6306500e-01 1.0715239e-05 4.9725171e-05
+ 2.0480029e-05 1.0811945e-05 9.4358163e-04 2.7858719e-06 2.6497897e-03]
+
+attacked7: prob lbl_v = 6 = 0.9998778104782104, prob lbl_t = 8 = 1.8946045656775823e-06.
+ SUCCESS: Prob for lbl_v = 6 = 1.000 is the highest prob
+all probs: [1.0128159e-05 2.9374038e-07 1.0068782e-04 1.8186155e-08 3.7969136e-07
+ 8.7454955e-06 9.9987781e-01 6.1297225e-09 1.8946046e-06 4.6077409e-09]
+
+attacked8: prob lbl_v = 1 = 0.2326858937740326, prob lbl_t = 4 = 0.41153356432914734.
+ FAIL: Prob for lbl_v = 1 = 0.233, highest prob = 0.412 for class 4
+all probs: [0.00747433 0.2326859  0.02268217 0.00211694 0.41153356 0.01079043
+ 0.0023131  0.10922114 0.05207576 0.1491067 ]
+
+attacked9: prob lbl_v = 8 = 0.766302764415741, prob lbl_t = 2 = 0.14920483529567719.
+ SUCCESS: Prob for lbl_v = 8 = 0.766 is the highest prob
+all probs: [2.5605379e-02 7.4836249e-03 1.4920484e-01 6.6132350e-03 6.8733422e-04
+ 1.7610480e-03 4.0163700e-03 2.8944600e-02 7.6630276e-01 9.3809254e-03]
+
+i = 4, attacked1: nbits = 58, TR = 0.4
+i = 4, attacked2: nbits = 89, TR = 0.7
+i = 4, attacked3: nbits = 0, TR = 1.0
+i = 4, attacked4: nbits = 65, TR = 0.4
+i = 4, attacked5: nbits = 57, TR = 0.7
+i = 4, attacked6: nbits = 0, TR = 1.0
+i = 4, attacked7: nbits = 73, TR = 0.5
+i = 4, attacked8: nbits = 0, TR = 1.0
+i = 4, attacked9: nbits = 32, TR = 0.8
+i = 0, attacked0: nbits = 32, TR = 0.8
+i = 0, attacked1: nbits = 38, TR = 0.09999999999999998
+i = 0, attacked2: nbits = 52, TR = 0.7
+i = 0, attacked3: nbits = 52, TR = 0.09999999999999998
+i = 0, attacked4: nbits = 81, TR = 0.19999999999999996
+i = 0, attacked5: nbits = 17, TR = 1.0
+i = 0, attacked6: nbits = 0, TR = 1.0
+i = 0, attacked7: nbits = 0, TR = 1.0
+i = 0, attacked8: nbits = 92, TR = 0.8
+i = 0, attacked9: nbits = 17, TR = 0.5
+i = 1, attacked0: nbits = 89, TR = 0.19999999999999996
+i = 1, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.9421585202217102, prob lbl_t = 4 = 0.04826006665825844.
+ SUCCESS: Prob for lbl_v = 9 = 0.942 is the highest prob
+all probs: [1.4797332e-04 8.2938565e-04 5.7202945e-03 1.9997650e-07 4.8260067e-02
+ 2.6201495e-05 7.3706599e-07 2.8565682e-03 1.3598063e-08 9.4215852e-01]
+
+attacked1: prob lbl_v = 9 = 0.999292254447937, prob lbl_t = 7 = 0.0007027446990832686.
+ SUCCESS: Prob for lbl_v = 9 = 0.999 is the highest prob
+all probs: [3.1508794e-08 2.6321499e-07 5.4712888e-07 8.0537408e-09 3.3344413e-06
+ 8.4996913e-07 7.2608294e-11 7.0274470e-04 7.1796201e-11 9.9929225e-01]
+
+attacked2: prob lbl_v = 6 = 0.8510295152664185, prob lbl_t = 0 = 0.14792582392692566.
+ SUCCESS: Prob for lbl_v = 6 = 0.851 is the highest prob
+all probs: [1.4792582e-01 5.0350110e-04 2.2039620e-05 3.6540111e-08 9.6299296e-08
+ 5.0074857e-04 8.5102952e-01 7.1593155e-07 2.2636531e-08 1.7495518e-05]
+
+attacked3: prob lbl_v = 8 = 0.28224122524261475, prob lbl_t = 4 = 0.00805790163576603.
+ FAIL: Prob for lbl_v = 8 = 0.282, highest prob = 0.644 for class 6
+all probs: [3.1659383e-02 1.0813202e-02 3.1917109e-03 3.4010682e-05 8.0579016e-03
+ 4.1144332e-03 6.4356059e-01 6.1189399e-05 2.8224123e-01 1.6266352e-02]
+
+attacked4: prob lbl_v = 3 = 0.00857939850538969, prob lbl_t = 4 = 0.013155258260667324.
+ FAIL: Prob for lbl_v = 3 = 0.009, highest prob = 0.911 for class 9
+all probs: [8.9424578e-03 3.4850903e-02 3.2371101e-03 8.5793985e-03 1.3155258e-02
+ 5.1503219e-03 4.0748464e-03 1.0277811e-02 5.9527979e-04 9.1113651e-01]
+
+attacked5: prob lbl_v = 1 = 0.9227372407913208, prob lbl_t = 2 = 0.0008358883787877858.
+ SUCCESS: Prob for lbl_v = 1 = 0.923 is the highest prob
+all probs: [2.6670366e-05 9.2273724e-01 8.3588838e-04 1.3721634e-05 7.7216671e-04
+ 9.1664493e-05 3.3645623e-04 3.6364343e-02 8.7132967e-06 3.8813174e-02]
+
+attacked6: prob lbl_v = 2 = 0.6072207093238831, prob lbl_t = 8 = 1.0752990720064304e-09.
+ SUCCESS: Prob for lbl_v = 2 = 0.607 is the highest prob
+all probs: [3.4270331e-01 2.1107203e-06 6.0722071e-01 5.9384735e-08 2.6314976e-06
+ 2.6504921e-07 3.2476901e-08 1.5677513e-03 1.0752991e-09 4.8503190e-02]
+
+attacked7: prob lbl_v = 6 = 0.9999990463256836, prob lbl_t = 8 = 1.3724253677960263e-10.
+ SUCCESS: Prob for lbl_v = 6 = 1.000 is the highest prob
+all probs: [1.0102391e-06 5.1292397e-11 2.4296089e-08 8.6511148e-13 3.6589351e-10
+ 2.3071534e-08 9.9999905e-01 5.0263170e-12 1.3724254e-10 6.3976539e-11]
+
+attacked8: prob lbl_v = 1 = 0.004450902342796326, prob lbl_t = 4 = 0.010386070236563683.
+ FAIL: Prob for lbl_v = 1 = 0.004, highest prob = 0.982 for class 9
+all probs: [8.7588014e-05 4.4509023e-03 1.9448815e-05 5.7664379e-06 1.0386070e-02
+ 3.5443576e-05 2.9228656e-06 2.7724451e-03 6.3438485e-05 9.8217601e-01]
+
+attacked9: prob lbl_v = 8 = 0.27093270421028137, prob lbl_t = 2 = 0.0693046972155571.
+ FAIL: Prob for lbl_v = 8 = 0.271, highest prob = 0.573 for class 9
+all probs: [5.5552442e-02 6.9611538e-03 6.9304697e-02 1.4813817e-03 6.5068190e-05
+ 3.6650704e-04 1.1599245e-03 2.0815909e-02 2.7093270e-01 5.7336026e-01]
+
+i = 1, attacked1: nbits = 68, TR = 0.19999999999999996
+i = 1, attacked2: nbits = 103, TR = 0.7
+i = 1, attacked3: nbits = 0, TR = 1.0
+i = 1, attacked4: nbits = 104, TR = 0.5
+i = 1, attacked5: nbits = 25, TR = 0.8
+i = 1, attacked6: nbits = 0, TR = 1.0
+i = 1, attacked7: nbits = 98, TR = 0.8
+i = 1, attacked8: nbits = 0, TR = 1.0
+i = 1, attacked9: nbits = 26, TR = 0.7
+i = 2, attacked0: nbits = 0, TR = 1.0
+i = 2, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.9999849796295166, prob lbl_t = 4 = 3.3546027111697185e-07.
+ SUCCESS: Prob for lbl_v = 9 = 1.000 is the highest prob
+all probs: [1.4303112e-06 1.1917772e-06 7.8097891e-08 4.5959592e-07 3.3546027e-07
+ 2.6883917e-08 6.7885724e-09 1.1519610e-05 5.8507123e-08 9.9998498e-01]
+
+attacked1: prob lbl_v = 9 = 0.5199436545372009, prob lbl_t = 7 = 0.45126575231552124.
+ SUCCESS: Prob for lbl_v = 9 = 0.520 is the highest prob
+all probs: [2.37633896e-04 3.39038833e-03 9.22263414e-03 3.38944286e-04
+ 1.47255445e-02 8.68181174e-04 5.21304719e-06 4.51265752e-01
+ 2.09284008e-06 5.19943655e-01]
+
+attacked2: prob lbl_v = 6 = 0.6126751899719238, prob lbl_t = 0 = 0.30024221539497375.
+ SUCCESS: Prob for lbl_v = 6 = 0.613 is the highest prob
+all probs: [3.0024222e-01 6.1647920e-03 1.7526163e-02 2.4243419e-03 1.0960764e-04
+ 4.7641806e-02 6.1267519e-01 1.8994856e-03 4.4119294e-04 1.0875223e-02]
+
+attacked3: prob lbl_v = 8 = 0.2070302665233612, prob lbl_t = 4 = 4.602828539645998e-06.
+ FAIL: Prob for lbl_v = 8 = 0.207, highest prob = 0.433 for class 6
+all probs: [2.7729484e-01 5.6795761e-05 1.0526113e-02 2.1997769e-03 4.6028285e-06
+ 8.5772900e-04 4.3289030e-01 3.6407064e-06 2.0703027e-01 6.9135934e-02]
+
+attacked4: prob lbl_v = 3 = 0.034964196383953094, prob lbl_t = 4 = 0.24411866068840027.
+ FAIL: Prob for lbl_v = 3 = 0.035, highest prob = 0.490 for class 9
+all probs: [0.04765807 0.02371028 0.02449124 0.0349642  0.24411866 0.03104468
+ 0.01030046 0.08376746 0.00976765 0.4901773 ]
+
+attacked5: prob lbl_v = 1 = 0.8621556162834167, prob lbl_t = 2 = 0.011760076507925987.
+ SUCCESS: Prob for lbl_v = 1 = 0.862 is the highest prob
+all probs: [4.66593192e-04 8.62155616e-01 1.17600765e-02 1.41692552e-04
+ 4.68138698e-03 3.42847430e-04 3.56404320e-03 9.79130566e-02
+ 4.91719511e-05 1.89254228e-02]
+
+attacked6: prob lbl_v = 2 = 0.9480608105659485, prob lbl_t = 8 = 1.7020158793457085e-07.
+ SUCCESS: Prob for lbl_v = 2 = 0.948 is the highest prob
+all probs: [4.8674602e-02 3.3415989e-05 9.4806081e-01 6.7845654e-06 5.3415963e-05
+ 1.1382208e-06 4.9391488e-06 1.8355559e-03 1.7020159e-07 1.3290962e-03]
+
+attacked7: prob lbl_v = 6 = 0.021265462040901184, prob lbl_t = 8 = 0.1469811499118805.
+ FAIL: Prob for lbl_v = 6 = 0.021, highest prob = 0.766 for class 9
+all probs: [0.0115347  0.00092699 0.01608389 0.00225502 0.02391499 0.00769345
+ 0.02126546 0.00291811 0.14698115 0.76642615]
+
+attacked8: prob lbl_v = 1 = 0.9919028878211975, prob lbl_t = 4 = 2.5761599317775108e-05.
+ SUCCESS: Prob for lbl_v = 1 = 0.992 is the highest prob
+all probs: [9.0018482e-05 9.9190289e-01 5.5119925e-04 5.9375354e-09 2.5761599e-05
+ 1.2164415e-07 3.7260099e-06 7.4188029e-03 4.0597033e-07 6.9416192e-06]
+
+attacked9: prob lbl_v = 8 = 0.5560670495033264, prob lbl_t = 2 = 0.21130403876304626.
+ SUCCESS: Prob for lbl_v = 8 = 0.556 is the highest prob
+all probs: [1.4641437e-01 1.1061769e-02 2.1130404e-01 1.7069723e-02 4.1952406e-04
+ 1.1097289e-03 1.2644074e-02 2.5857238e-02 5.5606705e-01 1.8052477e-02]
+
+i = 2, attacked1: nbits = 85, TR = 0.7
+i = 2, attacked2: nbits = 72, TR = 0.09999999999999998
+i = 2, attacked3: nbits = 83, TR = 0.7
+i = 2, attacked4: nbits = 111, TR = 0.4
+i = 2, attacked5: nbits = 33, TR = 0.5
+i = 2, attacked6: nbits = 0, TR = 1.0
+i = 2, attacked7: nbits = 0, TR = 1.0
+i = 2, attacked8: nbits = 79, TR = 0.30000000000000004
+i = 2, attacked9: nbits = 38, TR = 0.9
+i = 3, attacked0: nbits = 0, TR = 1.0
+i = 3, Testing model on 10 of last 100 training adversarial examples
+attacked0: prob lbl_v = 9 = 0.999976396560669, prob lbl_t = 4 = 1.6062018630691455e-06.
+ SUCCESS: Prob for lbl_v = 9 = 1.000 is the highest prob
+all probs: [4.3549476e-06 5.0158565e-06 2.2910200e-07 1.6711479e-06 1.6062019e-06
+ 3.0243254e-07 4.7267456e-08 9.6422309e-06 6.4891964e-07 9.9997640e-01]
+
+attacked1: prob lbl_v = 9 = 0.39737728238105774, prob lbl_t = 7 = 0.3276357352733612.
+ SUCCESS: Prob for lbl_v = 9 = 0.397 is the highest prob
+all probs: [1.2692585e-02 1.5859956e-02 1.1227044e-01 4.3069697e-03 1.0376257e-01
+ 2.5391949e-02 5.0780480e-04 3.2763574e-01 1.9469127e-04 3.9737728e-01]
+
+attacked2: prob lbl_v = 6 = 0.6157732605934143, prob lbl_t = 0 = 0.0677594467997551.
+ SUCCESS: Prob for lbl_v = 6 = 0.616 is the highest prob
+all probs: [6.7759447e-02 1.4619236e-02 7.5658914e-03 8.1181126e-03 3.5203458e-04
+ 1.9062094e-01 6.1577326e-01 3.1902140e-03 4.6522864e-03 8.7348640e-02]
+
+attacked3: prob lbl_v = 8 = 0.3316146731376648, prob lbl_t = 4 = 0.27669522166252136.
+ SUCCESS: Prob for lbl_v = 8 = 0.332 is the highest prob
+all probs: [0.01767324 0.03960421 0.19209376 0.00329512 0.27669522 0.02612858
+ 0.0919933  0.01552478 0.33161467 0.00537714]
+
+attacked4: prob lbl_v = 3 = 0.08267275989055634, prob lbl_t = 4 = 0.2634153366088867.
+ FAIL: Prob for lbl_v = 3 = 0.083, highest prob = 0.263 for class 4
+all probs: [0.03749445 0.14144021 0.04560194 0.08267276 0.26341534 0.03996719
+ 0.02458931 0.10131564 0.02143475 0.24206837]
+
+attacked5: prob lbl_v = 1 = 0.7376490235328674, prob lbl_t = 2 = 0.015628747642040253.
+ SUCCESS: Prob for lbl_v = 1 = 0.738 is the highest prob
+all probs: [0.00196248 0.737649   0.01562875 0.00199865 0.00261877 0.00511575
+ 0.00331192 0.18780658 0.00105656 0.04285148]
+
+attacked6: prob lbl_v = 2 = 0.9137952327728271, prob lbl_t = 8 = 3.201599156454904e-06.
+ SUCCESS: Prob for lbl_v = 2 = 0.914 is the highest prob
+all probs: [7.1617290e-02 2.4157496e-04 9.1379523e-01 3.6408972e-05 3.6001854e-04
+ 2.2056847e-05 4.8940390e-05 2.3964699e-03 3.2015992e-06 1.1478787e-02]
+
+attacked7: prob lbl_v = 6 = 0.9999693632125854, prob lbl_t = 8 = 7.917795983303222e-07.
+ SUCCESS: Prob for lbl_v = 6 = 1.000 is the highest prob
+all probs: [7.0289516e-06 6.6024398e-08 2.1010366e-05 2.8743461e-09 4.2666446e-07
+ 1.3754482e-06 9.9996936e-01 5.4610156e-09 7.9177960e-07 3.0805667e-09]
+
+attacked8: prob lbl_v = 1 = 0.15874621272087097, prob lbl_t = 4 = 0.14661000669002533.
+ FAIL: Prob for lbl_v = 1 = 0.159, highest prob = 0.464 for class 9
+all probs: [0.01931849 0.15874621 0.01656684 0.00247364 0.14661    0.00572648
+ 0.00087761 0.17678452 0.0093796  0.46351656]
+
+attacked9: prob lbl_v = 8 = 0.6158798933029175, prob lbl_t = 2 = 0.19107872247695923.
+ SUCCESS: Prob for lbl_v = 8 = 0.616 is the highest prob
+all probs: [0.04056611 0.02367316 0.19107872 0.03330396 0.00467782 0.00219754
+ 0.0115651  0.05714909 0.6158799  0.0199086 ]
+
+i = 3, attacked1: nbits = 100, TR = 0.6
+i = 3, attacked2: nbits = 108, TR = 0.30000000000000004
+i = 3, attacked3: nbits = 63, TR = 0.6
+i = 3, attacked4: nbits = 74, TR = 0.0
+i = 3, attacked5: nbits = 50, TR = 0.6
+i = 3, attacked6: nbits = 0, TR = 1.0
+i = 3, attacked7: nbits = 96, TR = 0.4
+i = 3, attacked8: nbits = 0, TR = 1.0

@@ -1,0 +1,52 @@
+
+THESE RESULTS FROM USING model.getProbs 
+Testing model on 10 of last 100 training adversarial examples, countTrained = 100 
+SUCCESS: pred = lbl_v = 0
+FAIL: pred = 3 not equal to lbl_v = 6
+FAIL: pred = 5 not equal to lbl_v = 4
+SUCCESS: pred = lbl_v = 7
+FAIL: pred = 1 not equal to lbl_v = 6
+FAIL: pred = 5 not equal to lbl_v = 0
+FAIL: pred = 6 not equal to lbl_v = 2
+FAIL: pred = 4 not equal to lbl_v = 1
+FAIL: pred = 6 not equal to lbl_v = 5
+FAIL: pred = 6 not equal to lbl_v = 2
+
+THESE RESULTS FROM USING model.forward with added 4th dim, lr = 1e-3
+Testing model on 10 of last 100 training adversarial examples, countTrained = 100 
+FAIL: pred = tensor([2], device='cuda:0') not equal to lbl_v = 0
+FAIL: pred = tensor([7], device='cuda:0') not equal to lbl_v = 6
+FAIL: pred = tensor([5], device='cuda:0') not equal to lbl_v = 4
+SUCCESS: pred = lbl_v = tensor([7], device='cuda:0')
+FAIL: pred = tensor([1], device='cuda:0') not equal to lbl_v = 6
+FAIL: pred = tensor([7], device='cuda:0') not equal to lbl_v = 0
+SUCCESS: pred = lbl_v = tensor([2], device='cuda:0')
+SUCCESS: pred = lbl_v = tensor([1], device='cuda:0')
+SUCCESS: pred = lbl_v = tensor([5], device='cuda:0')
+SUCCESS: pred = lbl_v = tensor([2], device='cuda:0')
+
+THESE RESULTS FROM USING model.forward with added 4th dim, lr = 1e-2
+Testing model on 10 of last 100 training adversarial examples, countTrained = 100 
+SUCCESS: pred = lbl_v = tensor([0], device='cuda:0')
+FAIL: pred = tensor([8], device='cuda:0') not equal to lbl_v = 6
+FAIL: pred = tensor([7], device='cuda:0') not equal to lbl_v = 4
+SUCCESS: pred = lbl_v = tensor([7], device='cuda:0')
+SUCCESS: pred = lbl_v = tensor([6], device='cuda:0')
+FAIL: pred = tensor([8], device='cuda:0') not equal to lbl_v = 0
+SUCCESS: pred = lbl_v = tensor([2], device='cuda:0')
+FAIL: pred = tensor([7], device='cuda:0') not equal to lbl_v = 1
+FAIL: pred = tensor([2], device='cuda:0') not equal to lbl_v = 5
+SUCCESS: pred = lbl_v = tensor([2], device='cuda:0')
+
+THESE RESULTS FROM USING model.forward with added 4th dim, lr = 1e-4
+Testing model on 10 of last 100 training adversarial examples, countTrained = 100 
+SUCCESS: pred = lbl_v = tensor([0], device='cuda:0')
+SUCCESS: pred = lbl_v = tensor([6], device='cuda:0')
+FAIL: pred = tensor([5], device='cuda:0') not equal to lbl_v = 4
+FAIL: pred = tensor([5], device='cuda:0') not equal to lbl_v = 7
+FAIL: pred = tensor([1], device='cuda:0') not equal to lbl_v = 6
+FAIL: pred = tensor([5], device='cuda:0') not equal to lbl_v = 0
+SUCCESS: pred = lbl_v = tensor([2], device='cuda:0')
+FAIL: pred = tensor([4], device='cuda:0') not equal to lbl_v = 1
+FAIL: pred = tensor([6], device='cuda:0') not equal to lbl_v = 5
+SUCCESS: pred = lbl_v = tensor([2], device='cuda:0')

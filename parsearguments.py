@@ -6,8 +6,8 @@ def getarguments():
     # Key parameters
     parser.add_argument('--victim_id', '-v', default='14', help='The victim class id.')
     parser.add_argument('--target_id', '-t', default='1', help='The target class id.')
-    parser.add_argument('--tr_lo', type=float, default=0.25, help='The threshold for coarse grained reduction.')
-    parser.add_argument('--tr_hi', type=float, default=0.5, help='The threshold for fine grained reduction.')
+    parser.add_argument('--tr_lo', type=float, default=0.25, help='The threshold for fine grained reduction.')
+    parser.add_argument('--tr_hi', type=float, default=0.5, help='The threshold for coarse grained reduction.')
     parser.add_argument('--scorefile', '-s', default='score.py', help='The file for scoring in mask generation.')
     parser.add_argument('--network', '-n', default='GTSRB', help='The dataset / type of network to attack.')
     parser.add_argument('--heatmap', default='Target', help='The type of heatmap to use.')

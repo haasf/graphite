@@ -1,0 +1,253 @@
+
+Next 50 Iterations: tr_hi = 0.25, tr_lo = 0.0, num_xforms = 0
+IMAGE_ID: CIFAR_test0
+Final transform_robustness: 1.0
+Final number of pixels: 268
+Final number of queries: 1558 
+Total running time: 13.3484 seconds
+IMAGE_ID: CIFAR_test1
+Final transform_robustness: 1.0
+Final number of pixels: 196
+Final number of queries: 1310 
+Total running time: 8.1686 seconds
+IMAGE_ID: CIFAR_test2
+Final transform_robustness: 1.0
+Final number of pixels: 158
+Final number of queries: 1305 
+Total running time: 8.1331 seconds
+IMAGE_ID: CIFAR_test3
+Final transform_robustness: 1.0
+Final number of pixels: 13
+Final number of queries: 1167 
+Total running time: 7.4200 seconds
+IMAGE_ID: CIFAR_test4
+Final transform_robustness: 1.0
+Final number of pixels: 35
+Final number of queries: 1125 
+Total running time: 6.9795 seconds
+IMAGE_ID: CIFAR_test5
+Final transform_robustness: 1.0
+Final number of pixels: 354
+Final number of queries: 1626 
+Total running time: 10.0200 seconds
+IMAGE_ID: CIFAR_test6
+Final transform_robustness: 1.0
+Final number of pixels: 40
+Final number of queries: 1320 
+Total running time: 8.2897 seconds
+IMAGE_ID: CIFAR_test7
+Final transform_robustness: 1.0
+Final number of pixels: 120
+Final number of queries: 1401 
+Total running time: 8.7872 seconds
+IMAGE_ID: CIFAR_test8
+Final transform_robustness: 1.0
+Final number of pixels: 283
+Final number of queries: 1598 
+Total running time: 9.9858 seconds
+IMAGE_ID: CIFAR_test9
+Final transform_robustness: 1.0
+Final number of pixels: 23
+Final number of queries: 1062 
+Total running time: 6.7416 seconds
+IMAGE_ID: CIFAR_test10
+Final transform_robustness: 1.0
+Final number of pixels: 45
+Final number of queries: 1271 
+Total running time: 8.0796 seconds
+IMAGE_ID: CIFAR_test11
+Final transform_robustness: 1.0
+Final number of pixels: 30
+Final number of queries: 1171 
+Total running time: 7.3686 seconds
+IMAGE_ID: CIFAR_test12
+Final transform_robustness: 1.0
+Final number of pixels: 156
+Final number of queries: 1165 
+Total running time: 7.2892 seconds
+IMAGE_ID: CIFAR_test13
+Final transform_robustness: 1.0
+Final number of pixels: 33
+Final number of queries: 1198 
+Total running time: 7.5873 seconds
+IMAGE_ID: CIFAR_test14
+Final transform_robustness: 1.0
+Final number of pixels: 28
+Final number of queries: 1110 
+Total running time: 7.0285 seconds
+IMAGE_ID: CIFAR_test15
+Final transform_robustness: 1.0
+Final number of pixels: 68
+Final number of queries: 1199 
+Total running time: 7.5674 seconds
+IMAGE_ID: CIFAR_test16
+Final transform_robustness: 1.0
+Final number of pixels: 40
+Final number of queries: 1326 
+Total running time: 8.3921 seconds
+IMAGE_ID: CIFAR_test17
+Final transform_robustness: 1.0
+Final number of pixels: 236
+Final number of queries: 1404 
+Total running time: 8.8087 seconds
+IMAGE_ID: CIFAR_test18
+Final transform_robustness: 1.0
+Final number of pixels: 130
+Final number of queries: 1196 
+Total running time: 7.5548 seconds
+IMAGE_ID: CIFAR_test19
+Final transform_robustness: 1.0
+Final number of pixels: 153
+Final number of queries: 1360 
+Total running time: 8.5149 seconds
+IMAGE_ID: CIFAR_test20
+Final transform_robustness: 1.0
+Final number of pixels: 70
+Final number of queries: 1289 
+Total running time: 8.1949 seconds
+IMAGE_ID: CIFAR_test21
+Final transform_robustness: 1.0
+Final number of pixels: 120
+Final number of queries: 1267 
+Total running time: 7.8824 seconds
+IMAGE_ID: CIFAR_test22
+Final transform_robustness: 1.0
+Final number of pixels: 98
+Final number of queries: 1390 
+Total running time: 8.6059 seconds
+IMAGE_ID: CIFAR_test23
+Final transform_robustness: 1.0
+Final number of pixels: 84
+Final number of queries: 1152 
+Total running time: 7.1944 seconds
+IMAGE_ID: CIFAR_test24
+Final transform_robustness: 1.0
+Final number of pixels: 72
+Final number of queries: 1199 
+Total running time: 7.4788 seconds
+IMAGE_ID: CIFAR_test25
+Final transform_robustness: 1.0
+Final number of pixels: 98
+Final number of queries: 1210 
+Total running time: 7.4992 seconds
+IMAGE_ID: CIFAR_test26
+Final transform_robustness: 1.0
+Final number of pixels: 144
+Final number of queries: 1561 
+Total running time: 9.7957 seconds
+IMAGE_ID: CIFAR_test27
+Final transform_robustness: 1.0
+Final number of pixels: 49
+Final number of queries: 1430 
+Total running time: 8.9955 seconds
+IMAGE_ID: CIFAR_test28
+Final transform_robustness: 1.0
+Final number of pixels: 26
+Final number of queries: 1117 
+Total running time: 7.0300 seconds
+IMAGE_ID: CIFAR_test29
+Final transform_robustness: 1.0
+Final number of pixels: 187
+Final number of queries: 1348 
+Total running time: 8.3086 seconds
+IMAGE_ID: CIFAR_test30
+Final transform_robustness: 1.0
+Final number of pixels: 103
+Final number of queries: 1355 
+Total running time: 8.5170 seconds
+IMAGE_ID: CIFAR_test31
+Final transform_robustness: 1.0
+Final number of pixels: 11
+Final number of queries: 1275 
+Total running time: 8.0670 seconds
+IMAGE_ID: CIFAR_test32
+Final transform_robustness: 1.0
+Final number of pixels: 31
+Final number of queries: 1137 
+Total running time: 7.1617 seconds
+IMAGE_ID: CIFAR_test33
+Final transform_robustness: 1.0
+Final number of pixels: 21
+Final number of queries: 1318 
+Total running time: 8.3567 seconds
+IMAGE_ID: CIFAR_test34
+Final transform_robustness: 1.0
+Final number of pixels: 4
+Final number of queries: 914 
+Total running time: 5.7787 seconds
+IMAGE_ID: CIFAR_test35
+Final transform_robustness: 1.0
+Final number of pixels: 73
+Final number of queries: 1197 
+Total running time: 7.4889 seconds
+IMAGE_ID: CIFAR_test36
+Final transform_robustness: 1.0
+Final number of pixels: 203
+Final number of queries: 1513 
+Total running time: 9.4561 seconds
+IMAGE_ID: CIFAR_test37
+Final transform_robustness: 1.0
+Final number of pixels: 191
+Final number of queries: 1527 
+Total running time: 9.5358 seconds
+IMAGE_ID: CIFAR_test38
+Final transform_robustness: 1.0
+Final number of pixels: 156
+Final number of queries: 1313 
+Total running time: 8.2351 seconds
+IMAGE_ID: CIFAR_test39
+Final transform_robustness: 1.0
+Final number of pixels: 17
+Final number of queries: 1085 
+Total running time: 6.9091 seconds
+IMAGE_ID: CIFAR_test40
+Final transform_robustness: 1.0
+Final number of pixels: 104
+Final number of queries: 1276 
+Total running time: 7.9952 seconds
+IMAGE_ID: CIFAR_test41
+Final transform_robustness: 1.0
+Final number of pixels: 51
+Final number of queries: 1259 
+Total running time: 7.9265 seconds
+IMAGE_ID: CIFAR_test42
+Final transform_robustness: 1.0
+Final number of pixels: 141
+Final number of queries: 1274 
+Total running time: 8.0155 seconds
+IMAGE_ID: CIFAR_test43
+Final transform_robustness: 1.0
+Final number of pixels: 134
+Final number of queries: 1470 
+Total running time: 9.2742 seconds
+IMAGE_ID: CIFAR_test44
+Final transform_robustness: 1.0
+Final number of pixels: 386
+Final number of queries: 1586 
+Total running time: 9.6194 seconds
+IMAGE_ID: CIFAR_test45
+Final transform_robustness: 1.0
+Final number of pixels: 128
+Final number of queries: 1284 
+Total running time: 8.0591 seconds
+IMAGE_ID: CIFAR_test46
+Final transform_robustness: 1.0
+Final number of pixels: 1
+Final number of queries: 998 
+Total running time: 6.3680 seconds
+IMAGE_ID: CIFAR_test47
+Final transform_robustness: 1.0
+Final number of pixels: 0
+Final number of queries: 853 
+Total running time: 5.5500 seconds
+IMAGE_ID: CIFAR_test48
+Final transform_robustness: 1.0
+Final number of pixels: 279
+Final number of queries: 1521 
+Total running time: 9.4971 seconds
+IMAGE_ID: CIFAR_test49
+Final transform_robustness: 1.0
+Final number of pixels: 565
+Final number of queries: 1654 
+Total running time: 10.2524 seconds
+Next 50 Iterations: tr_hi = 0.25, tr_lo = 0.0, num_xforms = 25

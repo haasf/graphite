@@ -1,0 +1,8 @@
+Results with skipping training only, tr_hi = 0.75, tr_lo = 0.25
+
+Test Statistics after training for 0 iterations
+Average TR: 0.654
+Average nBits: 54.30
+Average numQ: 5081.4
+Average time: 15.508 seconds
+Training images skipped (nbits > 78.4): 0

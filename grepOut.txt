@@ -1,0 +1,101 @@
+
+Test Statistics after training for 13000 iterations
+Average TR: 0.512
+Average nBits: 89.46
+Average numQ: 5651.0
+Average time: 17.736 seconds
+Test Statistics after training for 13050 iterations
+Average TR: 0.448
+Average nBits: 101.44
+Average numQ: 5593.6
+Average time: 17.599 seconds
+Test Statistics after training for 13100 iterations
+Average TR: 0.416
+Average nBits: 102.18
+Average numQ: 5626.4
+Average time: 17.668 seconds
+Test Statistics after training for 13150 iterations
+Average TR: 0.506
+Average nBits: 92.72
+Average numQ: 5580.0
+Average time: 17.511 seconds
+Test Statistics after training for 13200 iterations
+Average TR: 0.456
+Average nBits: 85.38
+Average numQ: 5546.4
+Average time: 17.412 seconds
+Test Statistics after training for 13250 iterations
+Average TR: 0.440
+Average nBits: 101.80
+Average numQ: 5605.2
+Average time: 17.598 seconds
+Test Statistics after training for 13300 iterations
+Average TR: 0.486
+Average nBits: 77.08
+Average numQ: 5619.8
+Average time: 17.642 seconds
+Test Statistics after training for 13350 iterations
+Average TR: 0.530
+Average nBits: 73.06
+Average numQ: 5465.2
+Average time: 17.148 seconds
+Test Statistics after training for 13400 iterations
+Average TR: 0.526
+Average nBits: 71.52
+Average numQ: 5558.6
+Average time: 17.459 seconds
+Test Statistics after training for 13450 iterations
+Average TR: 0.476
+Average nBits: 85.58
+Average numQ: 5581.2
+Average time: 17.528 seconds
+Test Statistics after training for 13500 iterations
+Average TR: 0.476
+Average nBits: 104.14
+Average numQ: 5646.2
+Average time: 17.710 seconds
+Test Statistics after training for 13550 iterations
+Average TR: 0.490
+Average nBits: 90.52
+Average numQ: 5611.2
+Average time: 17.599 seconds
+Test Statistics after training for 13600 iterations
+Average TR: 0.500
+Average nBits: 82.52
+Average numQ: 5594.4
+Average time: 17.554 seconds
+Test Statistics after training for 13650 iterations
+Average TR: 0.502
+Average nBits: 88.70
+Average numQ: 5614.4
+Average time: 17.602 seconds
+Test Statistics after training for 13700 iterations
+Average TR: 0.402
+Average nBits: 103.06
+Average numQ: 5668.8
+Average time: 17.788 seconds
+Test Statistics after training for 13750 iterations
+Average TR: 0.520
+Average nBits: 90.30
+Average numQ: 5649.4
+Average time: 17.709 seconds
+Test Statistics after training for 13800 iterations
+Average TR: 0.412
+Average nBits: 102.20
+Average numQ: 5721.0
+Average time: 17.961 seconds
+Test Statistics after training for 13850 iterations
+Average TR: 0.474
+Average nBits: 90.84
+Average numQ: 5599.4
+Average time: 17.567 seconds
+Test Statistics after training for 13900 iterations
+Average TR: 0.468
+Average nBits: 120.18
+Average numQ: 5783.6
+Average time: 18.147 seconds
+Test Statistics after training for 13950 iterations
+Average TR: 0.454
+Average nBits: 104.06
+Average numQ: 5622.8
+Average time: 17.636 seconds

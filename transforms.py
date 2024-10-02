@@ -29,9 +29,9 @@ def convert2Network(img, is_torch = True, net_size = 32, model_type = 'GTSRB'):
         if np.isnan(img).any():
             assert(False)
 
-        print("Before Clamp: img.shape:", img.shape, " torch.max(img): ", torch.max(img),  "torch.min(img): ", torch.min(img))
+        # print("Before Clamp: img.shape:", img.shape, " torch.max(img): ", torch.max(img),  "torch.min(img): ", torch.min(img))
         img = torch.clamp(img, 0.0, 1.0)
-        print("After Clamp: img.shape:", img.shape, " torch.max(img): ", torch.max(img),  "torch.min(img): ", torch.min(img))
+        # print("After Clamp: img.shape:",  img.shape, " torch.max(img): ", torch.max(img),  "torch.min(img): ", torch.min(img))
         assert(torch.max(img) <= 1.0 and torch.min(img) >= 0.0)
         if model_type == 'GTSRB':
             img = transforms.Normalize((0.5, 0.5, 0.5), (1.0, 1.0, 1.0))(img)
@@ -55,7 +55,7 @@ def convert2Network(img, is_torch = True, net_size = 32, model_type = 'GTSRB'):
 
         img = torch.from_numpy(img).permute(2, 0, 1)
         img = torch.clamp(img, 0.0, 1.0)
-        print("img.shape:", img.shape, " torch.max(img): ", torch.max(img),  "torch.min(img): ", torch.min(img))
+        # print("img.shape:", img.shape, " torch.max(img): ", torch.max(img),  "torch.min(img): ", torch.min(img))
         assert(torch.max(img) <= 1.0 and torch.min(img) >= 0.0)
 
     return img
@@ -138,14 +138,14 @@ def get_transform_params(num_xforms, model_type = 'GTSRB', nps = False, baseline
             xform = (angle, dist, gamma, blur, crop_percent, crop_off_x, crop_off_y, 30, 3, nps)
             transforms.append(xform)
         else:
-            angle = np.random.uniform(-15, 15)
+            angle = np.random.uniform(-30, 30)
             crop_percent = np.random.uniform(-0.03125, 0.03125)
             crop_off_x = np.random.uniform(-0.03125, 0.03125)
             crop_off_y = np.random.uniform(-0.03125, 0.03125)
 
-            blur_kernels = [0, 3, 5]
+            blur_kernels = [0] 
             max_dist = 15.0
-            gamma = np.random.uniform(1.0, 3.5)
+            gamma = np.random.uniform(1.0, 2.0)
             flip_flag = np.random.uniform(0.0, 1.0)
             if int(round(flip_flag)) == 1:
                 gamma = 1.0 / gamma

@@ -1,0 +1,55 @@
+i = 0, attacked0: nbits = 32, TR = 0.8
+i = 0, attacked1: nbits = 50, TR = 0.19999999999999996
+i = 0, attacked2: nbits = 59, TR = 0.4
+i = 0, attacked3: nbits = 69, TR = 0.4
+i = 0, attacked4: nbits = 86, TR = 0.09999999999999998
+i = 0, attacked5: nbits = 16, TR = 0.8
+i = 0, attacked6: nbits = 116, TR = 0.7
+i = 0, attacked7: nbits = 106, TR = 0.7
+i = 0, attacked8: nbits = 36, TR = 0.6
+i = 0, attacked9: nbits = 25, TR = 0.7
+
+i = 1, attacked0: nbits = 118, TR = 0.19999999999999996
+i = 1, attacked1: nbits = 71, TR = 0.30000000000000004
+i = 1, attacked2: nbits = 79, TR = 0.6
+i = 1, attacked3: nbits = 79, TR = 0.5
+i = 1, attacked4: nbits = 123, TR = 0.6
+i = 1, attacked5: nbits = 30, TR = 0.7
+i = 1, attacked6: nbits = 112, TR = 0.0
+i = 1, attacked7: nbits = 86, TR = 0.5
+i = 1, attacked8: nbits = 60, TR = 0.0
+i = 1, attacked9: nbits = 43, TR = 1.0
+
+i = 2, attacked0: nbits = 64, TR = 0.4
+i = 2, attacked1: nbits = 52, TR = 0.5
+i = 2, attacked2: nbits = 68, TR = 0.5
+i = 2, attacked3: nbits = 57, TR = 0.30000000000000004
+i = 2, attacked4: nbits = 102, TR = 0.4
+i = 2, attacked5: nbits = 34, TR = 0.8
+i = 2, attacked6: nbits = 784, TR = 0.0
+i = 2, attacked7: nbits = 91, TR = 0.0
+i = 2, attacked8: nbits = 87, TR = 0.30000000000000004
+i = 2, attacked9: nbits = 38, TR = 0.6
+
+i = 3, attacked0: nbits = 44, TR = 0.09999999999999998
+i = 3, attacked1: nbits = 64, TR = 0.7
+i = 3, attacked2: nbits = 54, TR = 0.09999999999999998
+i = 3, attacked3: nbits = 101, TR = 0.30000000000000004
+i = 3, attacked4: nbits = 117, TR = 0.19999999999999996
+i = 3, attacked5: nbits = 36, TR = 0.7
+i = 3, attacked6: nbits = 784, TR = 0.0
+i = 3, attacked7: nbits = 77, TR = 0.19999999999999996
+i = 3, attacked8: nbits = 784, TR = 0.0
+i = 3, attacked9: nbits = 44, TR = 1.0
+
+i = 4, attacked0: nbits = 59, TR = 0.0
+i = 4, attacked1: nbits = 74, TR = 0.30000000000000004
+i = 4, attacked2: nbits = 92, TR = 0.4
+i = 4, attacked3: nbits = 65, TR = 0.19999999999999996
+i = 4, attacked4: nbits = 100, TR = 0.19999999999999996
+i = 4, attacked5: nbits = 45, TR = 0.4
+i = 4, attacked6: nbits = 784, TR = 0.0
+i = 4, attacked7: nbits = 86, TR = 0.7
+i = 4, attacked8: nbits = 784, TR = 0.0
+i = 4, attacked9: nbits = 36, TR = 1.0
+

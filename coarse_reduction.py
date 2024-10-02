@@ -41,8 +41,8 @@ def get_coarse_reduced_mask(start_mask, object_size, patches, indices, img_v, im
     success_rate, query_ct = run_predictions(model, xform_imgs, lbl_v, lbl_t)
     coarse_reduction_query_ct += query_ct
 
-    print("init_tr", 1 - success_rate)
-    print("init bits", start_mask.sum() / 3)
+    # print("init_tr", 1 - success_rate)
+    # print("init bits", start_mask.sum() / 3)
 
     if "binary" not in coarse_red_mode:  
         # linear-based coarse_reduction of the start mask
@@ -62,15 +62,15 @@ def get_coarse_reduced_mask(start_mask, object_size, patches, indices, img_v, im
     coarse_reduction_query_ct += query_ct
 
     print("mask coarse_reduction completed...")
-    print('-'*32)
-    print("COARSE_REDUCTION: mode ", coarse_red_mode)
-    print("COARSE_REDUCTION: direction", direction)
-    print("COARSE_REDUCTION: num. patches incorporated", pivot)
-    print("COARSE_REDUCTION: final bits in mask", ((best_mask.sum() / 3).item()))
-    print("COARSE_REDUCTION: final tr of mask", best_tr)
-    print("COARSE_REDUCTION: final area ratio", ((best_mask.sum() / 3) / object_size))
-    print("COARSE_REDUCTION: queries used", coarse_reduction_query_ct)
-    print('-'*32)
+    # print('-'*32)
+    # print("COARSE_REDUCTION: mode ", coarse_red_mode)
+    # print("COARSE_REDUCTION: direction", direction)
+    # print("COARSE_REDUCTION: num. patches incorporated", pivot)
+    # print("COARSE_REDUCTION: final bits in mask", ((best_mask.sum() / 3).item()))
+    # print("COARSE_REDUCTION: final tr of mask", best_tr)
+    # print("COARSE_REDUCTION: final area ratio", ((best_mask.sum() / 3) / object_size))
+    # print("COARSE_REDUCTION: queries used", coarse_reduction_query_ct)
+    # print('-'*32)
 
     best_score = 9999999 # large value, unused
 
@@ -97,7 +97,8 @@ def perform_linear_coarse_reduction(patches, err_threshold, lbl_v, lbl_t, img_t_
             tot_queries += query_ct
             best_mask = next_mask
             best_tr = 1 - success_rate
-            nbits = (best_mask.sum() / 3)
+            nbits = (best_mask.sum() / 1)
+            #FIX
             print("Coarse Reduction: tr: %.2f" % (1 - success_rate), "bits: %d" % nbits.item(), 'time', time.time() - linstart)
             if best_tr >= (1 - err_threshold):
                 print("COARSE_REDUCTION: TR GOAL REACHED", (1 - success_rate))

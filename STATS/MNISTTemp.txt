@@ -1,0 +1,52 @@
+
+IMAGE_ID: MNIST_test0
+Final transform_robustness: 0.76
+Final number of pixels: 16
+Final number of queries: 97700 
+Total running time: 288.7254 seconds
+IMAGE_ID: MNIST_test0
+Final transform_robustness: 0.81
+Final number of pixels: 8
+Final number of queries: 90600 
+Total running time: 261.9939 seconds
+IMAGE_ID: MNIST_test0
+Final transform_robustness: 0.62
+Final number of pixels: 15
+Final number of queries: 111000 
+Total running time: 316.5408 seconds
+IMAGE_ID: MNIST_test0
+Final transform_robustness: 0.4
+Final number of pixels: 10
+Final number of queries: 11100 
+Total running time: 37.3404 seconds
+IMAGE_ID: MNIST_test0
+Final transform_robustness: 0.4
+Final number of pixels: 7
+Final number of queries: 5110 
+Total running time: 19.3806 seconds
+IMAGE_ID: MNIST_test0
+Final transform_robustness: 0.6
+Final number of pixels: 18
+Final number of queries: 4810 
+Total running time: 17.9955 seconds
+IMAGE_ID: MNIST_test0
+Final transform_robustness: 0.7
+Final number of pixels: 32
+Final number of queries: 4510 
+Total running time: 17.1429 seconds
+IMAGE_ID: MNIST_test0
+Final transform_robustness: 0.9
+Final number of pixels: 38
+Final number of queries: 4760 
+Total running time: 18.3343 seconds
+IMAGE_ID: MNIST_test0
+Final transform_robustness: 0.9
+Final number of pixels: 38
+Final number of queries: 4760 
+Total running time: 17.9013 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.0, num_xforms(b and m) = 0
+Average transform_robustness: 1.0
+Average number of pixels: 35.86
+Average number of queries: 329.0 
+Average running time: 0.4544642162322998

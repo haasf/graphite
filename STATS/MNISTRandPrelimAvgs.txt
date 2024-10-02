@@ -1,0 +1,91 @@
+
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.0, num_xforms(b and m) = 0
+Average transform_robustness: 1.0
+Average number of pixels: 16.56
+Average number of queries: 997.22 
+Average running time: 1.2705668783187867 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.0, num_xforms(b and m) = 25
+Average transform_robustness: 0.47759999999999997
+Average number of pixels: 21.42
+Average number of queries: 26989.5 
+Average running time: 84.38352734565734 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.0, num_xforms(b and m) = 50
+Average transform_robustness: 0.5240000000000001
+Average number of pixels: 21.46
+Average number of queries: 53626.0 
+Average running time: 163.7924393749237 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.0, num_xforms(b and m) = 75
+Average transform_robustness: 0.5616
+Average number of pixels: 20.94
+Average number of queries: 82501.5 
+Average running time: 249.36574179172516 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.0, num_xforms(b and m) = 100
+Average transform_robustness: 0.5272
+Average number of pixels: 23.16
+Average number of queries: 109016.0 
+Average running time: 331.96290487766265 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.25, num_xforms(b and m) = 0
+Average transform_robustness: 1.0
+Average number of pixels: 16.72
+Average number of queries: 989.92 
+Average running time: 1.2228866815567017 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.25, num_xforms(b and m) = 25
+Average transform_robustness: 0.44399999999999984
+Average number of pixels: 19.0
+Average number of queries: 26815.0 
+Average running time: 83.33622643470764 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.25, num_xforms(b and m) = 50
+Average transform_robustness: 0.49400000000000005
+Average number of pixels: 19.62
+Average number of queries: 52734.0 
+Average running time: 160.54680381774904 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.25, num_xforms(b and m) = 75
+Average transform_robustness: 0.5034666666666666
+Average number of pixels: 22.92
+Average number of queries: 80757.0 
+Average running time: 244.02009730815888 seconds
+
+Stats from 50 iterations with tr_hi = 0.25, tr_lo = 0.25, num_xforms(b and m) = 100
+Average transform_robustness: 0.5204
+Average number of pixels: 21.18
+Average number of queries: 105626.0 
+Average running time: 321.2810832452774 seconds
+
+Stats from 50 iterations with tr_hi = 0.5, tr_lo = 0.0, num_xforms(b and m) = 0
+Average transform_robustness: 1.0
+Average number of pixels: 19.3
+Average number of queries: 1010.98 
+Average running time: 1.2561024808883667 seconds
+
+Stats from 50 iterations with tr_hi = 0.5, tr_lo = 0.0, num_xforms(b and m) = 25
+Average transform_robustness: 0.6728000000000002
+Average number of pixels: 24.46
+Average number of queries: 27973.0 
+Average running time: 86.94081983089447 seconds
+
+Stats from 50 iterations with tr_hi = 0.5, tr_lo = 0.0, num_xforms(b and m) = 50
+Average transform_robustness: 0.7352
+Average number of pixels: 26.24
+Average number of queries: 55996.0 
+Average running time: 170.38606227874754 seconds
+
+Stats from 50 iterations with tr_hi = 0.5, tr_lo = 0.0, num_xforms(b and m) = 75
+Average transform_robustness: 0.7397333333333331
+Average number of pixels: 23.9
+Average number of queries: 82120.5 
+Average running time: 247.79887100219727 seconds
+
+Stats from 50 iterations with tr_hi = 0.5, tr_lo = 0.0, num_xforms(b and m) = 100
+Average transform_robustness: 0.7574
+Average number of pixels: 23.9
+Average number of queries: 111800.0 
+Average running time: 339.59770620822906 seconds

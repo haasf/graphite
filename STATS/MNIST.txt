@@ -1,0 +1,7 @@
+
+Total running time: 363.2211 seconds
+Total running time: 149.4370 seconds
+Total running time: 167.4482 seconds
+Total running time: 197.5525 seconds
+Total running time: 252.7832 seconds
+Total running time: 259.1196 seconds

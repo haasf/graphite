@@ -31,7 +31,6 @@ class MnistNet(nn.Module):
         return x
     
     def predict(self, image):
-        # print("image.shape", image.size())
         if torch.max(image) > 1.0 or torch.min(image) < 0.0:
             image = torch.clamp(image, 0.0, 1.0)
         self.eval()
@@ -47,3 +46,17 @@ class MnistNet(nn.Module):
         if len(image.size()) < 4:
             return predict[0].item()
         return predict
+
+    def getProbs(self, image):
+        if torch.max(image) > 1.0 or torch.min(image) < 0.0:
+            image = torch.clamp(image, 0.0, 1.0)
+        self.eval()
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        image_batch = image.clone()
+        if len(image.size()) < 4:
+            image_batch = image_batch.unsqueeze(0)
+        image_batch = image_batch.to(device)
+        print("image_batch.shape: ", image_batch.shape)
+        output = self.forward(image_batch)
+        # _, predict = torch.max(output.data, 1)
+        return output.data

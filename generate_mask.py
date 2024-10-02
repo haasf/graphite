@@ -25,6 +25,10 @@ def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lb
         mask must be all 0's and 1's and of the resolution that we want to generate noise in
     """
 
+    numColors = 1
+    if(model_type != 'MNIST'):
+        numColors = 3
+
     # Read in arguments
     global scoremod
 
@@ -53,7 +57,6 @@ def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lb
 
 
     strideSize = max(patch_size // stride_factor,1)
-    # print("patch_size: ", patch_size, " stride_factor: ", stride_factor)
     if heatmap_file is None:
         # collect all valid patches
         for i in range(0, mask.size()[1] - patch_size + 1, strideSize): # 4
@@ -68,7 +71,7 @@ def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lb
 
 
         # compute heatmap and order
-        tr_scores, heatmap_query_ct = survey_heatmap(mask, patches, indices, img_v, img_t, img_v_small, img_t_small, lbl_t, lbl_v, model, xforms, pt_file, net_size, HEATMAP_MODE, plot = True, model_type = model_type, init_theta = init_theta)
+        tr_scores, heatmap_query_ct = survey_heatmap(mask, patches, indices, img_v, img_t, img_v_small, img_t_small, lbl_t, lbl_v, model, xforms, pt_file, net_size, HEATMAP_MODE, plot = True, model_type = model_type, init_theta = init_theta,numColors= numColors)
         query_count += heatmap_query_ct
        
         tr_scores_np = np.asarray(tr_scores)
@@ -102,7 +105,7 @@ def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lb
 
 
     ########################### Stage 2: COARSE REDUCTION: coarsely remove patches until the high surivability threshold is reached ################################
-    args = parsearguments.getarguments();
+    args = parsearguments.getarguments()
     coarse_red_mode = args.coarse_mode  # binary or linear
     if coarse_red_mode != 'none': 
         direction = "forward"
@@ -112,39 +115,39 @@ def generate_mask(model, img_v_small, img_v, lbl_v, mask, img_t_small, img_t, lb
                 get_coarse_reduced_mask(mask, object_size, patches, indices, img_v, img_t, lbl_v, lbl_t, model, xforms, pt_file, net_size, 
                                    num_xforms = num_xforms, patch_size = patch_size, err_threshold = COARSE_ACCEPT_THRESHOLD, 
                                    coarse_red_mode = coarse_red_mode, direction = direction, args = args, model_type = model_type, init_theta = init_theta)
-        coarse_red_nbits = best_mask.sum() / 3
+        coarse_red_nbits = best_mask.sum() / numColors
         query_count += coarse_reduction_query_ct
 
     else:
         best_mask = mask
-        coarse_red_nbits = best_mask.sum() / 3
+        coarse_red_nbits = best_mask.sum() / numColors
 
     ########################### Stage 3: FINE REDUCTION: iterate over patches and greedily remove if the mask score improves ################################
     print("Starting fine grained reduction")
     if max_mask_size > 0:
         lbd = 5
         reduction_query_ct = 0
-        while best_mask.sum() / 3 > max_mask_size:
+        while best_mask.sum() / numColors > max_mask_size:
             patches_copy = [x for x in patches]
             indices_copy = [x for x in indices]
-            best_score, best_tr, best_mask, this_red_query_ct = get_fine_reduced_mask(best_mask, object_size, patches_copy, indices_copy, img_v, img_t_small, lbl_v, lbl_t, model, xforms, pt_file, net_size, err_threshold = FINE_REJECT_THRESHOLD, HEATMAP_MODE = HEATMAP_MODE, scoremod = scoremod, lbd = lbd, max_mask_size = max_mask_size, model_type = model_type, init_theta = init_theta)
+            best_score, best_tr, best_mask, this_red_query_ct = get_fine_reduced_mask(best_mask, object_size, patches_copy, indices_copy, img_v, img_t_small, lbl_v, lbl_t, model, xforms, pt_file, net_size, err_threshold = FINE_REJECT_THRESHOLD, HEATMAP_MODE = HEATMAP_MODE, scoremod = scoremod, lbd = lbd, max_mask_size = max_mask_size, model_type = model_type, init_theta = init_theta,numColors =numColors )
             lbd += 5
             reduction_query_ct += this_red_query_ct
     else:
-        best_score, best_tr, best_mask, reduction_query_ct = get_fine_reduced_mask(best_mask, object_size, patches, indices, img_v, img_t_small, lbl_v, lbl_t, model, xforms, pt_file, net_size, err_threshold = FINE_REJECT_THRESHOLD, HEATMAP_MODE = HEATMAP_MODE, scoremod = scoremod, model_type = model_type, init_theta = init_theta)
-    reducer_nbits = best_mask.sum() / 3
+        best_score, best_tr, best_mask, reduction_query_ct = get_fine_reduced_mask(best_mask, object_size, patches, indices, img_v, img_t_small, lbl_v, lbl_t, model, xforms, pt_file, net_size, err_threshold = FINE_REJECT_THRESHOLD, HEATMAP_MODE = HEATMAP_MODE, scoremod = scoremod, model_type = model_type, init_theta = init_theta,numColors=numColors)
+    reducer_nbits = best_mask.sum() / numColors
     query_count += reduction_query_ct
 
 
     ############### Print results, save out and returned initialization point found ##############3
-    print('-'*32)
-    print("End of Mask Generation summary:")
-    print("queries", reduction_query_ct)
-    print("final (coarse_red to reducer) bits", coarse_red_nbits.item(), reducer_nbits.item())
-    print("final tr", best_tr)
-    print("final area ratio", (reducer_nbits / object_size).item())
-    print("queries used", query_count)
-    print('-'*32)
+    # print('-'*32)
+    # print("End of Mask Generation summary:")
+    # print("queries", reduction_query_ct)
+    # print("final (coarse_red to reducer) bits", coarse_red_nbits.item(), reducer_nbits.item())
+    # print("final tr", best_tr)
+    # print("final area ratio", (reducer_nbits / object_size).item())
+    # print("queries used", query_count)
+    # print('-'*32)
 
     best_theta = (img_t_small - img_v_small) * best_mask
     attacked = add_noise(img_v, best_mask, 1.0, best_theta)
@@ -199,8 +202,6 @@ def get_fine_reduced_mask(start_mask, object_size, patches, indices, img_v, img_
     # set up images
     img_v_np = img_v.permute(1, 2, 0).numpy()
     img_v_np = cv2.resize(img_v_np, (start_mask.size()[2], start_mask.size()[1]))
-    # if(len(img_v_np.shape) == 2):
-    #     img_v_np = img_v_np[:,:,np.newaxis]
     img_v_np = grayDim(img_v_np)
     img_v_small = torch.from_numpy(img_v_np).permute(2, 0, 1)
 
@@ -254,7 +255,7 @@ def get_fine_reduced_mask(start_mask, object_size, patches, indices, img_v, img_
         reduction_query_ct += query_ct
 
         score = scoremod.score_fn(theta + img_v_small, next_mask, success_rate, object_size, next_indice,
-                         best_score=best_score, threshold=err_threshold, lbd = lbd)
+                         best_score=best_score, threshold=err_threshold, lbd = lbd, numColors = numColors)
         if score < best_score:
             best_score = score
             best_mask = next_mask
@@ -274,7 +275,7 @@ def get_fine_reduced_mask(start_mask, object_size, patches, indices, img_v, img_
 def survey_heatmap(mask, patches, indices, img_v, img_t, img_v_small, img_t_small, lbl_t, lbl_v, model, xforms, pt_file, net_size, HEATMAP_MODE, plot = False, model_type = 'GTSRB', init_theta = None, numColors = 3):
     ''' encapsulation of the transform_robustness measurements heatmap to compute
            random
-           target wrt victim or 
+           target wrt victim or f
            victim wrt target '''
     if HEATMAP_MODE == 'Random':
         tr_scores = [random.random() for i in range(len(patches))] 

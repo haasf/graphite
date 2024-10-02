@@ -69,10 +69,7 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
 
         else:
             mask = mask_full
-
-        # if(len(mask.shape) == 2):
-        #     mask = mask[:,:,np.newaxis]
-
+            
         mask = grayDim(mask)
         mask = np.where(mask > 128, 255, 0) 
         mask = torch.from_numpy(mask).permute(2, 0, 1) / 255.0
@@ -86,10 +83,6 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
         
         tar_large = cv2.cvtColor(tar_large, cv2Color)
         tar_large = np.array(tar_large, dtype=np.float32) / 255.0
-
-        # if(len(tar.shape) == 2):
-        #     tar = tar[:,:,np.newaxis]
-        #     tar_large = tar_large[:,:,np.newaxis]
 
         tar = grayDim(tar)
         tar_large = grayDim(tar_large)
@@ -107,6 +100,7 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
 
     # patch_size = 4
     patch_size = noise_size // 8
+    # patch_size = 1
     for i in range(joint_iters):
         if args.square_x is not None:
             assert joint_iters == 1
@@ -149,11 +143,13 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
         else:  
             adversarial = img_torch
             tr_score = 1.0
-            # could calculate TR from run_predictio s
-            quit()
+            # could calculate TR from run_predictions
+            # print("Num bits = 0, quitting")
+            # quit()
             
         if return_type == 'Image':
-            return adversarial
+            print("nbits = ", nbits)
+            return adversarial, nbits #, tr_score
         
 
         prior_mask = mask_out.clone()
@@ -181,7 +177,7 @@ def attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, 
         print("Final transform_robustness (" + str(args.num_test_xforms) + " transforms):", 1.0 - success_rate)
 
 
-    with open("STATS/CIFARPrelim.txt", mode = "a") as f: 
+    with open("modelTraining/MNIST/training.txt", mode = "a") as f: 
         f.write("\nIMAGE_ID: " + image_id)
         f.write(f"\nFinal transform_robustness: {tr_score}")
         f.write(f"\nFinal number of pixels: {nbits}") 
@@ -242,9 +238,9 @@ def attack_MNIST(img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, 
 
     return attack_network(model, img_v, img_t, mask, lbl_v, lbl_t, pt_file, scorefile, heatmap, coarseerror, reduceerror, beta, num_xforms_mask, num_xforms_boost, net_size, noise_size, model_type = 'MNIST', joint_iters = joint_iters, image_id = image_id)
 if __name__ == '__main__':
-    network = 'CIFAR'
-    runType = 'PrelimStats'
-    # runType = "just one run"
+    network = 'MNIST'
+    # runType = 'PrelimStats'
+    runType = "just one run"
     args = parsearguments.getarguments()
     network = args.network
     img_v = args.img_v

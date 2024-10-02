@@ -1,0 +1,14 @@
+python3 train.py --hull MNIST/masks/mask.png -s score.py -n MNIST --coarse_mode=binary -b 100 -m 100 --image_id MNIST_test0 --tr_hi 0.75 --tr_lo 0.25
+
+
+python3 main.py -v 1 -t 3 --img_v /home/haasf/GRAPHITE/MNIST/test/1/4.png --img_t /home/haasf/GRAPHITE/MNIST/test/3/9.png --hull MNIST/masks/mask.png -s score.py -n MNIST --heatmap=Target --coarse_mode=binary -b 50 -m 50 --image_id MNIST_trial0 --tr_hi 0.5 --tr_lo 0
+
+
+python3 main.py -v 7 -t 0 --img_v MNIST/test50Victims/0.png --img_t MNIST/test50Targets/0.png --hull MNIST/masks/mask.png -s score.py -n MNIST --heatmap=Target --coarse_mode=binary -b 100 -m 100 --image_id MNIST_trial1 --tr_hi 0.5 --tr_lo 0
+python3 main.py -v 7 -t 0 --img_v MNIST/test50Victims/0.png --img_t MNIST/test50Targets/0.png --hull MNIST/masks/mask.png -s score.py -n MNIST --heatmap=Target --coarse_mode=binary -b 50 -m 50 --image_id MNIST_trial1 --tr_hi 0.5 --tr_lo 0
+
+train on one image, test on the same image, output attacked image, should change in some way
+why can't tr_lo = 0 allow many patches to be removed? (score.py, interpretation of tr_lo, etc)
+
+Train multiple times, check if actual probablities are changing 
+NEED TO TEST ON ORIGINAL IMAGES, NOT NEWLY GENERATED ONES (ie save attacked0-9 from 1st iteration through, not the current)
