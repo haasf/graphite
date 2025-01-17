@@ -7,7 +7,7 @@ import numpy as np
 
 def grayDim(img):
     if(len(img.shape) == 2):
-        return img[:,:,np.newaxis]
+        return e
     else:
         return img
 def run_predictions_untargeted(model, imgs, label):

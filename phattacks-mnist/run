@@ -1,0 +1,6 @@
+
+python mnist_roa.py --modelname doa3by3 --ROAwidth 3 --ROAheight 3 
+python mnist_roa.py --modelname doa5by5 --ROAwidth 5 --ROAheight 5
+python mnist_roa.py --modelname doa7by7 --ROAwidth 7 --ROAheight 7 
+python mnist_roa.py --modelname doa9by9 --ROAwidth 9 --ROAheight 9
+python mnist_roa.py --modelname doa11by11 --ROAwidth 11 --ROAheight 11 

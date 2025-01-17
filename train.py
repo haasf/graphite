@@ -44,24 +44,13 @@ def train_MNIST(mask, pt_file, scorefile, heatmap, coarseerror, reduceerror, bet
 
     countTrained = 0
     countTests = 0
-    # Classes for MNIST/test50Targets
-    testTgts = np.array([0, 5, 0, 7, 0, 9, 8, 7, 1, 5, 
-                         3, 9, 1, 3, 5, 3, 2, 2, 6, 3, 
-                         0, 4, 3, 1, 0, 6, 1, 6, 6, 8, 
-                         2, 4, 5, 8, 2, 9, 6, 4, 4, 8, 
-                         4, 5, 1, 7, 9, 7, 9, 2, 8, 7])
-    # Classes for MNIST/test50Victims
-    testVics = np.array([7, 1, 1, 3, 2, 8, 5, 8, 5, 1, 
-                         8, 3, 9, 2, 9, 4, 6, 9, 9, 0, 
-                         6, 0, 0, 5, 3, 7, 2, 4, 1, 6, 
-                         4, 2, 0, 1, 6, 8, 5, 7, 5, 0, 
-                         2, 4, 9, 8, 7, 4, 6, 3, 7, 3])
+
     
     testIndices = random.sample(range(0,10000),50)
     testDs = datasets.MNIST(root='.', train=False, download=True, transform=transforms.ToTensor())
     testsubset = Subset(testDs,testIndices)
     testdl = DataLoader(testsubset,shuffle=False)
-    state = random.getstate()
+    state = "1234"
     numSkipped = 0
     for img_v, lbl_v_ten in tqdm(dl):
         if countTrained % 50 == 0:
@@ -101,8 +90,6 @@ def train_MNIST(mask, pt_file, scorefile, heatmap, coarseerror, reduceerror, bet
                 numTested += 1
                 # else: 
                 #     testSkips += 1
-
-            # assert((numTested + testSkips) == 50)
             
             with open ("modelTraining/MNIST/TestResults.txt", mode="a") as f:
                 f.write(f"\nTest Statistics after training for {countTrained} iterations")
@@ -142,10 +129,6 @@ def train_MNIST(mask, pt_file, scorefile, heatmap, coarseerror, reduceerror, bet
             optimizer.step() 
         else:
             numSkipped += 1
-
-        
-        
-          
             
 
         countTrained += 1
